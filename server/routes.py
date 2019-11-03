@@ -55,6 +55,24 @@ def submit():
 	db.data.insert_one(insert_data)
 	return jsonify({'ok': True}), 200
 
+@app.route('/api/donation')
+def donation():
+	""" returns the list of donation orgs
+	"""
+
+	filename = '/'.join(['data', 'donation.json'])
+
+	with current_app.open_resource(filename) as f:
+		return json.loads(f.read().decode('utf-8'))
+
+@app.route('/submit-donation', methods=['POST'])
+def submit_donation():
+	"""submit donation to db"""
+
+	print(request.json)
+	insert_data = request.json
+	db.donation.insert_one(insert_data)
+	return jsonify({'ok': True}), 200
 
 @app.route('/qv/<string:file_name>')
 def show_subpath(file_name):
@@ -66,3 +84,5 @@ def show_subpath(file_name):
 
 	with current_app.open_resource(filename) as f:
 		return json.loads(f.read().decode('utf-8'))
+
+
