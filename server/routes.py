@@ -55,6 +55,7 @@ def submit():
 	db.data.insert_one(insert_data)
 	return jsonify({'ok': True}), 200
 
+# donation
 @app.route('/api/donation')
 def donation():
 	""" returns the list of donation orgs
@@ -74,6 +75,30 @@ def submit_donation():
 	db.donation.insert_one(insert_data)
 	return jsonify({'ok': True}), 200
 
+# donation
+@app.route('/api/demographic')
+def demographic():
+	""" returns the list of donation orgs
+	"""
+
+	filename = '/'.join(['data', 'demographic.json'])
+
+	with current_app.open_resource(filename) as f:
+		return json.loads(f.read().decode('utf-8'))
+
+@app.route('/submit-demographic', methods=['POST'])
+def submit_demographic():
+	"""submit donation to db"""
+
+	print(request.json)
+	insert_data = request.json
+	# TODO: make path decision here,
+	# return path if moving to next step,
+	# otherwise generate a thank you page
+	db.demographic.insert_one(insert_data)
+	return jsonify({'ok': True}), 200
+
+# qv
 @app.route('/qv/<string:file_name>')
 def show_subpath(file_name):
 	""" returns the json file appropriate to the question set it wants to generate

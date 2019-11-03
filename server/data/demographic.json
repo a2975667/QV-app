@@ -1,0 +1,83 @@
+{
+	"title": "Software developer survey.",
+	"pages": [{
+		"title": "What operating system do you use?",
+		"questions": [{
+				"type": "dropdown",
+				"name": "gender",
+				"title": "What is your gender?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) Woman",
+					"(b) Men",
+					"(c) Non-binary",
+					"(d) Prefer not to disclose",
+					"(e) Prefer to Self-describe (continue to next question)"
+				]
+			},
+			{
+				"name": "gender_other",
+				"type": "text",
+				"title": "If you prefer to self-describe your gender:",
+				"placeHolder": "",
+				"isRequired": false
+			},
+			{
+				"type": "dropdown",
+				"name": "age",
+				"title": "What is your age?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) 18-24",
+					"(b) 25-34",
+					"(c) 35-44",
+					"(d) 45-54",
+					"(e) 55 or above",
+					"(f) prefer not to disclose"
+				]
+			},
+			{
+				"type": "dropdown",
+				"name": "education",
+				"title": "What is the highest level of education obtained?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) Less than 12th grade with or without diploma",
+					"(b) High school graduate (includes equivalency)",
+					"(c) Some college, no degree",
+					"(d) Associate's degree",
+					"(e) Bachelor's degree",
+					"(f) Graduate or professional degree",
+					"(g) Prefer not to disclose"
+				]
+			},
+			{
+				"type": "dropdown",
+				"name": "economic",
+				"title": "What is your approximate household income?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) Less than $10,000",
+					"(b) $10,000 to $24,999",
+					"(c) $25,000 to $49,999",
+					"(d) $50,000 to $74,999",
+					"(e) $75,000 to $99,999",
+					"(f) $100,000 to $149,999",
+					"(g) $150,000+",
+					"(h) Prefer not to disclose"
+				]
+			},
+			{
+				"name": "email",
+				"type": "text",
+				"title": "Please enter your e-mail (only for lottery):",
+				"placeHolder": "example@site.com",
+				"isRequired": false
+			}
+		]
+	}]
+}
