@@ -16,10 +16,6 @@ function calTotalCredits(votesArray) {
   return q_totalUsedCredits;
 }
 
-function getCurrentQuestion(){
-  
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -104,8 +100,7 @@ export class GlobalService {
         return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
           catchError(this.handleError)
         ).subscribe(data => {
-          console.log(data)
-          this.router.navigate(['end']);
+          this.router.navigate(['donation']);
         });
       }
     }

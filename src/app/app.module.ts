@@ -11,7 +11,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { EndPageComponent } from './end-page/end-page.component';
+import { DonationComponent } from './donation/donation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { EndPageComponent } from './end-page/end-page.component';
     OptionComponent,
     WelcomeComponent,
     QuestionnaireComponent,
-    EndPageComponent
+    DonationComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +29,7 @@ import { EndPageComponent } from './end-page/end-page.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ProgressbarModule.forRoot(),
+    FormsModule
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]
