@@ -6,18 +6,19 @@ import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DonationService {
+export class DemographicService {
   requestUrl = 'http://localhost:5000';
-  organizations: BehaviorSubject<Array<Object>> = new BehaviorSubject([]);
+  demoForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
     private http: HttpClient, 
   ) { }
-  requestOrganizations(){
-    let donationAPI = `${this.requestUrl}/api/donation`;
+  requestForm(){
+    let donationAPI = `${this.requestUrl}/api/demographic`;
     this.http.get(donationAPI).pipe(
       catchError(this.handleError)
     ).subscribe(data => {
-      this.organizations.next(data['donation']);
+      console.log(data);
+      this.demoForm.next(data);
     });
   }
   private handleError(error: HttpErrorResponse) {
@@ -32,8 +33,9 @@ export class DonationService {
       'Something bad happened; please try again later.');
   };
   submit(data){
-    let submitAPI = `${this.requestUrl}/submit-donation`;
-    this.http.post(submitAPI,data).pipe(
+    console.log(data);
+    let submitAPI = `${this.requestUrl}/submit-demographic`;
+    this.http.post(submitAPI, data).pipe(
       catchError(this.handleError)
     ).subscribe(result => {
       console.log(result);

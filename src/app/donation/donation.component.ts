@@ -37,4 +37,7 @@ export class DonationComponent implements OnInit {
       this.sum = this.MAX;
     }
   }
+  submit(){
+    this.donationService.submit(this.donations);
+  }
 }

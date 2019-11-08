@@ -4,12 +4,17 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { GlobalService } from '../services/global.service';
 import { User } from '../schema/user';
+import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
+  condition_one: boolean = false;
+  condition_two: boolean = false;
+  condition_three: boolean = false;
 
   constructor(
     private gService: GlobalService, 
@@ -27,14 +32,15 @@ export class WelcomeComponent implements OnInit {
     this.cookieService.set('user_current_path_index', String(0));
   }
   createUser() {
-    if(!this.cookieService.check('user_id')){
-      this.gService.getUserID().subscribe((user: User) => {
-        this.initCookie(user);
-        this.router.navigate(['questionnaire']);
-      })
-    }else{
-      this.router.navigate(['questionnaire']);
-    }
-    
+    if(this.condition_one && this.condition_two && this.condition_three){
+      if(!this.cookieService.check('user_id')){
+        this.gService.getUserID().subscribe((user: User) => {
+          this.initCookie(user);
+          this.router.navigate(['demographic']);
+        })
+      }else{
+        this.router.navigate(['demographic']);
+      }
+    }    
   }
 }

@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { DonationComponent } from './donation/donation.component';
 import { FormsModule } from '@angular/forms';
+import { LikertComponent } from './likert/likert.component';
+import { SurveyComponent } from './survey/survey.component';
+import { DemographicComponent } from './demographic/demographic.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { FormsModule } from '@angular/forms';
     OptionComponent,
     WelcomeComponent,
     QuestionnaireComponent,
-    DonationComponent
+    DonationComponent,
+    LikertComponent,
+    SurveyComponent,
+    DemographicComponent
   ],
   imports: [
     BrowserModule,
