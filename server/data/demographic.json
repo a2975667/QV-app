@@ -40,6 +40,64 @@
 			},
 			{
 				"type": "dropdown",
+				"name": "origin",
+				"title": "Are you of Hispanic, Latino, or of Spanish origin?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) Yes",
+					"(b) No"
+				]
+			},
+			{
+				"type": "dropdown",
+				"name": "ethnicity",
+				"title": "How would you describe yourself",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) American Indian or Alaska Native",
+					"(b) Asian",
+					"(c) Black or African American",
+					"(d) Native Hawaiian or Other Pacific Islander",
+					"(e) White"
+				]
+			},
+			{
+				"type": "dropdown",
+				"name": "occupation",
+				"title": "Which of the following best describes your primary occupation?",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(a) Administrative support (e.g., secretary, assistant)",
+					"(b) Art, writing, or journalism (e.g., author, reporter, sculptor)",
+					"(c) Business, management, or financial (e.g., manager, accountant, banker)",
+					"(d) Computer engineer or IT professional (e.g., systems administrator, programmer, IT consultant)",
+					"(e) Education (e.g., teacher)",
+					"(f) Engineer in other fields (e.g., civil engineer, bio-engineer)",
+					"(g) Homemaker",
+					"(h) Legal (e.g., lawyer, law clerk)",
+					"(i) Medical (e.g., doctor, nurse, dentist)",
+					"(j) Retired",
+					"(k) Scientist (e.g., researcher, professor)",
+					"(l) Service (e.g., retail clerks, server)",
+					"(m) Skilled labor (e.g., electrician, plumber, carpenter)",
+					"(n) Student",
+					"(o) Unemployed",
+					"(p) Decline to answer",
+					"(q) Other (Please specify in next question)"
+				]
+			},
+			{
+				"name": "occupation_other",
+				"type": "text",
+				"title": "If you prefer to self-describe your occupation:",
+				"placeHolder": "",
+				"isRequired": false
+			},
+			{
+				"type": "dropdown",
 				"name": "education",
 				"title": "What is the highest level of education obtained?",
 				"isRequired": true,

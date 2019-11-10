@@ -5,70 +5,36 @@
   "question_list":[
     {
       "qid":1,
-      "question":"This is an example question number 1",
-      "description":"This is the description place holder for Question 1",
+      "question":"Example: What to get for dinner",
+      "description":"This is a playground designed to help you understand how to use Qudrative Voting. Your friend is asking your preference for the type of food to get for the dinner party tonight. Please cast up and down votes for each of the cuisine listed. In this example, you will be given a total of 20 voice credits. Please play around with the votes. When your ready, submit your results and move on. We will be testing your understanding of quadratic voting in the next page so make sure you understand how to use QV.",
       "options":[
         {
           "o_id":1,
-          "option":"Option1",
-          "description":"Description for option1"
+          "option":"American",
+          "description":"Burgers, fries and ribs"
         },
         {
           "o_id":2,
-          "option":"Option2",
-          "description":"Description for option2"
+          "option":"Italian",
+          "description":"Spageitti and bread"
         },
         {
           "o_id":3,
-          "option":"Option3",
-          "description":"Description for option3"
+          "option":"Chinese",
+          "description":"Orange chicken and rice"
         },
         {
           "o_id":4,
-          "option":"Option4",
-          "description":"Description for option4"
+          "option":"Japanese",
+          "description":"Sushi and rolls"
         },
         {
           "o_id":5,
-          "option":"Option5",
-          "description":"Description for option5"
+          "option":"Mexican",
+          "description":"Taco and berrito"
         }
       ],
-      "totalCredits":25,
-      "reset": true
-    },
-    {
-      "qid":2,
-      "question":"This is an example question number 2",
-      "description":"This is the description place holder for Question 2",
-      "options":[
-        {
-          "o_id":1,
-          "option":"Option1",
-          "description":"Description for option1"
-        },
-        {
-          "o_id":2,
-          "option":"Option2",
-          "description":"Description for option2"
-        },
-        {
-          "o_id":3,
-          "option":"Option3",
-          "description":"Description for option3"
-        },
-        {
-          "o_id":4,
-          "option":"Option4",
-          "description":"Description for option4"
-        },
-        {
-          "o_id":5,
-          "option":"Option5",
-          "description":"Description for option5"
-        }
-      ],
-      "totalCredits":25,
+      "totalCredits":20,
       "reset": true
     }
   ]

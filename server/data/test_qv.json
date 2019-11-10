@@ -1,0 +1,48 @@
+{
+	"title": "Testing your understanding of QV",
+	"pages": [{
+		"title": "What operating system do you use?",
+		"questions": [{
+				"type": "dropdown",
+				"name": "ac1",
+				"title": "If you strongly favor an option in a Quadratic Voting survey, you can cast more than one upvotes on the option.",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(T) True",
+					"(F) False"
+				]
+			},{
+				"type": "dropdown",
+				"name": "ac2",
+				"title": "In a Quadratic Voting survey, you can cast as many votes on an option as you like.",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(T) True",
+					"(F) False"
+				]
+			},{
+				"type": "dropdown",
+				"name": "ac3",
+				"title": "In a Quadratic Voting survey, one vote costs one voice credit.",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(T) True",
+					"(F) False"
+				]
+			},{
+				"type": "dropdown",
+				"name": "ac4",
+				"title": "In a Quadratic Voting survey, you must use up all the voice credits available to you in the given budget.",
+				"isRequired": true,
+				"colCount": 0,
+				"choices": [
+					"(T) True",
+					"(F) False"
+				]
+			}
+		]
+	}]
+}
