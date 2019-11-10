@@ -66,6 +66,6 @@ def decide_path():
 	g5 = [qv_example, qv_test, qv_p1_108, qv_p1_036, qv_p2_108, qv_p2_036, donation]
 	g6 = [qv_example, qv_test, qv_p1_324, qv_p1_036, qv_p2_324, qv_p2_036, donation]
 	g7 = [qv_example, qv_test, qv_p1_324, qv_p1_108, qv_p2_324, qv_p2_108, donation]
+	g_test = [likert_p1, likert_p2, qv_example, qv_test, qv_p1_036, qv_p1_108, qv_p2_324, qv_p2_036, qv_p2_108, qv_p2_324, donation]
 
-
-	return g1
+	return g_test
