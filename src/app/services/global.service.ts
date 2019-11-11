@@ -41,10 +41,10 @@ export class GlobalService {
   getCookieById(id: string) {
     return this.cookieService.get(id);
   }
-  getCurrentPath() {
+  getCurrentPath() :string {
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
-    let pathArray: Array<string> = JSON.parse(this.getCookieById('user_path'));
-    return pathArray[pathIndex];
+    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    return pathArray[pathIndex]['file'];
   }
   generateSubmitPost(completeFlag: boolean) {
     let submitPost: submitPostSchema = {} as submitPostSchema;
@@ -56,7 +56,7 @@ export class GlobalService {
     submitPost.user_id = this.getCookieById('user_id');
     return submitPost;
   }
-  update() {
+  update() :void {
     this.usedCredits.emit(this.usedCreditsArray);
     this.votes.emit(this.votesContent);
   }
@@ -73,6 +73,7 @@ export class GlobalService {
     ) 
     let currentQuestion = this.getCookieById('user_current_question_index');
     result.subscribe((data: Questionnaire) => {
+      console.log(data)
       let height = data.question_list.length;
       let votesArray = [];
       for(let i = 0; i < height; i++){
@@ -89,10 +90,11 @@ export class GlobalService {
   submit() {
     let nextQuestionIndex: number = Number(this.getCookieById('user_current_question_index')) + 1;
     let submitData: submitPostSchema = this.generateSubmitPost(false);
+    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+
     if (nextQuestionIndex >= this.questionnaire.question_list.length) {
       nextQuestionIndex = 0;
       let pathIndex = Number(this.getCookieById('user_current_path_index'));
-      let pathArray: Array<string> = JSON.parse(this.getCookieById('user_path'));
       this.cookieService.set('user_current_path_index', String(pathIndex+1));
       if (pathIndex+1 >= pathArray.length) {
         this.cookieService.deleteAll();
@@ -104,14 +106,24 @@ export class GlobalService {
         });
       }
     }
-    this.cookieService.set('user_current_question_index', String(nextQuestionIndex));
-    this.getQuestionnaire();
-    submitData = this.generateSubmitPost(false);
-    return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
-      catchError(this.handleError)
-    ).subscribe(data => {
-      console.log(data)
-    });
+    if(pathArray[Number(this.getCookieById('user_current_path_index'))]['type']=='normal'){
+      nextQuestionIndex = 0;
+      this.cookieService.set('user_current_question_index', String(nextQuestionIndex));
+      return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
+        catchError(this.handleError)
+      ).subscribe(data => {
+        this.router.navigate(['likert']);
+      });
+    }else{
+      this.cookieService.set('user_current_question_index', String(nextQuestionIndex));
+      this.getQuestionnaire();
+      submitData = this.generateSubmitPost(false);
+      return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
+        catchError(this.handleError)
+      ).subscribe(data => {
+        console.log(data)
+      });
+    } 
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

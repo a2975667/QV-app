@@ -35,10 +35,8 @@ export class DemographicService {
   submit(data){
     console.log(data);
     let submitAPI = `${this.requestUrl}/submit-demographic`;
-    this.http.post(submitAPI, data).pipe(
+    return this.http.post(submitAPI, data).pipe(
       catchError(this.handleError)
-    ).subscribe(result => {
-      console.log(result);
-    })
+    );
   }
 }

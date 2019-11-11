@@ -35,8 +35,7 @@ export class QuestionnaireComponent implements OnInit {
       this.numFile = pathArray.length;
       let pathIndex = Number(this.cookieService.get('user_current_path_index'));
       this.currentFile = pathIndex + 1;
-    })
-    
+    }) 
     this.gService.getQuestionnaire();
   }
 

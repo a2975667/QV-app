@@ -10,13 +10,13 @@ import { DemographicComponent } from './demographic/demographic.component';
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'demographic', component: DemographicComponent },
-  { path: 'questionnaire', component: QuestionnaireComponent},
+  { path: 'qv', component: QuestionnaireComponent},
   { path: 'donation', component: DonationComponent},
-  { path: 'test', component: LikertComponent}
+  { path: 'likert', component: LikertComponent}
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
