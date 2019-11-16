@@ -13,101 +13,204 @@ from datetime import datetime
 from server import app, db
 from server.utils import decide_path
 
+
 @app.route('/')
 def root():
-	return app.send_static_file('index.html')
+    return app.send_static_file('index.html')
+
 
 @app.route('/createUser', methods=['POST'])
 def welcome():
-	""" Once the user decides to move on, create a user and nsave to database.
-	return database object id as user id, flow.
-	"""
+    """ Once the user decides to move on, create a user and nsave to database.
+    return database object id as user id, flow.
+    """
 
-	user = {
-		"userid": "",
-		"create_time": datetime.utcnow(),
-		"complete_flag": False
-	}
+    user = {
+        "userid": "",
+        "create_time": datetime.utcnow(),
+        "complete_flag": False,
+        "path_id": ""
+    }
 
-	userid = db.user.insert_one(user).inserted_id
+    userid = db.user.insert_one(user).inserted_id
 
-	# update user path
-	user["path"] = decide_path()
-	user["userid"] = userid
+    # update user path
+    user["path"] = {}  # dummy path
+    user["path_id"] = ""
+    user["userid"] = userid
+
+    db.user.update_one({
+        '_id': userid
+    }, {
+        '$set': user
+    }, upsert=False)
+
+    return jsonify(user), 200
+
+
+@app.route('/get_path', methods=['POST'])
+def get_new_path(gp):
+    """ This post request saves the demographic and returns the path
+    """
+    user = request.json
+
+    # get user demographic
+    # match with database
+    # TODO: fix user gp in schema
+    path_id, newpath = decide_path(user["gp"])
+
+    # update user path
+    if path_id != "thanks":
+        user["path"] = newpath
+        user["path_id"] = path_id
+        user["qualify"] = True
+        db.user.update_one({
+            '_id': user["userid"]
+        }, {
+            '$set': user
+        }, upsert=False)
+    else:
+        user["complete_flag"] = True
+        user["qualify"] = False
+        db.user.update_one({
+            '_id': user["userid"]
+        }, {
+            '$set': user
+        }, upsert=False)
+
+        return jsonify({'ok': False}), 200
+
+    return jsonify(user), 200
+
+
+@app.route('/api/disqualify', methods=['POST'])
+def disqualify():
+	user = request.json
+	gp = user['gp']
+	user_id = user['userid']
+	user_path_id = ['path_id']
+
+
+	user["qualify"] = True
+	user["complete_flag"] = True
+
+	gp_status = db.gp_status.find({"gp":gp})[0]
+	gp_status["count"][(int(user_path_id[1]))-1]["count"] -= 1
+	db.gp_status.find_one_and_replace({"gp":gp}, gp_status)
 
 	db.user.update_one({
-	  '_id': userid
-	},{
-	'$set': user
-	}, upsert=False)
-
-	return jsonify(user), 200
-
+            '_id': user["userid"]
+        }, {
+            '$set': user
+        }, upsert=False)
+	return jsonify({'ok': True}), 200
 
 @app.route('/submit', methods=['POST'])
 def submit():
-	"""generic submit json to db
-	the json needs to specify where this json needs to go
-	"""
+    """generic submit json to db
+    the json needs to specify where this json needs to go
+    """
 
-	print(request.json)
-	insert_data = request.json
-	db.data.insert_one(insert_data)
-	return jsonify({'ok': True}), 200
+    print(request.json)
+    insert_data = request.json
+    db.data.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
 # donation
 @app.route('/api/donation')
 def donation():
-	""" returns the list of donation orgs
-	"""
+    """ returns the list of donation orgs
+    """
 
-	filename = '/'.join(['data', 'donation.json'])
+    filename = '/'.join(['data', 'donation.json'])
 
-	with current_app.open_resource(filename) as f:
-		return json.loads(f.read().decode('utf-8'))
+    with current_app.open_resource(filename) as f:
+        return json.loads(f.read().decode('utf-8'))
+
 
 @app.route('/submit-donation', methods=['POST'])
 def submit_donation():
-	"""submit donation to db"""
+    """submit donation to db"""
 
-	print(request.json)
-	insert_data = request.json
-	db.donation.insert_one(insert_data)
-	return jsonify({'ok': True}), 200
+    print(request.json)
+    insert_data = request.json
+    db.donation.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
 # donation
 @app.route('/api/demographic')
 def demographic():
-	""" returns the list of donation orgs
-	"""
+    """ returns the list of donation orgs
+    """
 
-	filename = '/'.join(['data', 'demographic.json'])
+    filename = '/'.join(['data', 'demographic.json'])
 
-	with current_app.open_resource(filename) as f:
-		return json.loads(f.read().decode('utf-8'))
+    with current_app.open_resource(filename) as f:
+        return json.loads(f.read().decode('utf-8'))
+
 
 @app.route('/submit-demographic', methods=['POST'])
 def submit_demographic():
-	"""submit donation to db"""
+    """submit donation to db"""
 
-	print(request.json)
-	insert_data = request.json
-	# TODO: make path decision here,
-	# return path if moving to next step,
-	# otherwise generate a thank you page
-	db.demographic.insert_one(insert_data)
-	return jsonify({'ok': True}), 200
+    print(request.json)
+    insert_data = request.json
+    # TODO: make path decision here,
+    # return path if moving to next step,
+    # otherwise generate a thank you page
+    db.demographic.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
 # qv
 @app.route('/qv/<string:file_name>')
 def show_subpath(file_name):
-	""" returns the json file appropriate to the question set it wants to generate
-	"""
+    """ returns the json file appropriate to the question set it wants to generate
+    """
 
-	file_name = '/'.join(['data', file_name])
-	filename = file_name+'.json'
+    file_name = '/'.join(['data', file_name])
+    filename = file_name+'.json'
 
-	with current_app.open_resource(filename) as f:
-		return json.loads(f.read().decode('utf-8'))
+    with current_app.open_resource(filename) as f:
+        return json.loads(f.read().decode('utf-8'))
 
 
+@app.route('/complete')
+def complete():
+	return request.json["userid"]
+
+@app.route('/admin/setup_db')
+def setup_route_db():
+    """comment out for production"""
+    db["gp_status"].drop()
+
+    list_of_path = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"]
+
+    gp_max = {
+        "gp1": 1,
+        "gp2": 1,
+        "gp3": 1,
+        "gp4": 1,
+        "gp5": 1,
+        "gp6": 2,
+        "gp7": 1,
+        "gp8": 4,
+        "gp9": 1,
+        "gp10": 2,
+        "gp11": 1,
+        "gp12": 3,
+        "gp13": 1,
+        "gp14": 2,
+        "gp15": 1,
+        "gp16": 3
+    }
+
+    from random import randint
+
+    for gp in gp_max.keys():
+        db["gp_status"].insert_one({
+            "gp": gp,
+            "max": gp_max[gp],
+            "count": [{'path': x, 'count': randint(0, gp_max[gp])} for x in list_of_path]
+        })
+
+    return jsonify({"ok": True})
