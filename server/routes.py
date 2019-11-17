@@ -137,7 +137,7 @@ def demographic():
 
 # thanks
 @app.route('/thank_you/<string:file_name>')
-def show_subpath(file_name):
+def thanks(file_name):
     """ returns the json file appropriate to the question set it wants to generate
     """
 
