@@ -123,7 +123,7 @@ def decide_path(gp):
 
 	selected_path = sample(candidate_path, 1)[0]
 
-	print("return_path: ", selected_path, "  |  ", int(random_ms))
+	#print("return_path: ", selected_path, "  |  ", int(random_ms))
 	gp_status["count"][(int(selected_path[1]))-1]["count"] += 1
 	db.gp_status.find_one_and_replace({"gp":gp}, gp_status)
 
