@@ -25,25 +25,44 @@ def welcome():
     return database object id as user id, flow.
     """
 
+    gp = request.json["gp"]
+
     user = {
         "userid": "",
         "create_time": datetime.utcnow(),
         "complete_flag": False,
-        "path_id": ""
+        "path_id": "",
+        "gp": ""
     }
 
     userid = db.user.insert_one(user).inserted_id
+    path_id, newpath = decide_path(gp)
 
     # update user path
-    user["path"] = {}  # dummy path
-    user["path_id"] = ""
+    user["path"] = newpath
+    user["path_id"] = path_id
     user["userid"] = userid
 
-    db.user.update_one({
-        '_id': userid
-    }, {
-        '$set': user
-    }, upsert=False)
+    # update user path
+    if path_id != "thanks":
+        user["qualify"] = True
+
+        db.user.update_one({
+            '_id': userid
+        }, {
+            '$set': user
+        }, upsert=False)
+
+    else:
+        user["complete_flag"] = True
+        user["qualify"] = False
+        db.user.update_one({
+            '_id': userid
+        }, {
+            '$set': user
+        }, upsert=False)
+
+        return jsonify({'ok': False}), 200
 
     return jsonify(user), 200
 
@@ -85,25 +104,25 @@ def get_new_path(gp):
 
 @app.route('/api/disqualify', methods=['POST'])
 def disqualify():
-	user = request.json
-	gp = user['gp']
-	user_id = user['userid']
-	user_path_id = ['path_id']
+    user = request.json
+    gp = user['gp']
+    user_id = user['userid']
+    user_path_id = ['path_id']
 
+    user["qualify"] = True
+    user["complete_flag"] = True
 
-	user["qualify"] = True
-	user["complete_flag"] = True
+    gp_status = db.gp_status.find({"gp": gp})[0]
+    gp_status["count"][(int(user_path_id[1]))-1]["count"] -= 1
+    db.gp_status.find_one_and_replace({"gp": gp}, gp_status)
 
-	gp_status = db.gp_status.find({"gp":gp})[0]
-	gp_status["count"][(int(user_path_id[1]))-1]["count"] -= 1
-	db.gp_status.find_one_and_replace({"gp":gp}, gp_status)
+    db.user.update_one({
+        '_id': user["userid"]
+    }, {
+        '$set': user
+    }, upsert=False)
+    return jsonify({'ok': True}), 200
 
-	db.user.update_one({
-            '_id': user["userid"]
-        }, {
-            '$set': user
-        }, upsert=False)
-	return jsonify({'ok': True}), 200
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -176,7 +195,8 @@ def show_subpath(file_name):
 
 @app.route('/complete')
 def complete():
-	return request.json["userid"]
+    return request.json["userid"]
+
 
 @app.route('/admin/setup_db')
 def setup_route_db():
