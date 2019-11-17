@@ -37,7 +37,7 @@ export class WelcomeComponent implements OnInit {
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
         let userGP = this.route.snapshot.paramMap.get('id');
-        this.gService.getUserID().subscribe((user: User) => {
+        this.gService.getUserID(userGP).subscribe((user: User) => {
           this.initCookie(user);
           this.router.navigate(['demographic']);
         })
