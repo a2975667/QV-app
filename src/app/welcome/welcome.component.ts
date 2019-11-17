@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { CookieService } from 'ngx-cookie-service';
 import { GlobalService } from '../services/global.service';
@@ -19,7 +20,8 @@ export class WelcomeComponent implements OnInit {
   constructor(
     private gService: GlobalService, 
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class WelcomeComponent implements OnInit {
   createUser() {
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
+        let userGP = this.route.snapshot.paramMap.get('id');
         this.gService.getUserID().subscribe((user: User) => {
           this.initCookie(user);
           this.router.navigate(['demographic']);

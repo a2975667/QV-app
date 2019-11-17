@@ -32,8 +32,8 @@ export class GlobalService {
     private cookieService: CookieService,
     private router: Router,
   ) { }
-  getUserID() {
-    return this.http.post<User>(`${this.requestUrl}/createUser`, null)
+  getUserID(userGP: string) {
+    return this.http.post<User>(`${this.requestUrl}/createUser`, {gp: userGP})
     .pipe(
       catchError(this.handleError)
     );

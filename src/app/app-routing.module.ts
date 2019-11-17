@@ -8,7 +8,6 @@ import { DemographicComponent } from './demographic/demographic.component';
 
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
   { path: 'welcome/:id', component: WelcomeComponent },
   { path: 'demographic', component: DemographicComponent },
   { path: 'qv', component: QuestionnaireComponent},
