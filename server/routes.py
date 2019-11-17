@@ -26,7 +26,7 @@ def welcome():
     """
 
     gp = request.json["gp"]
-
+    
     user = {
         "userid": "",
         "create_time": datetime.utcnow(),

@@ -36,8 +36,10 @@ export class LikertComponent implements OnInit {
         if(type == 'normal'){
           this.route.navigate(['likert']);
           this.liService.requestForm();
-        } else {
+        } else if(type == 'qv'){
           this.route.navigate(['qv'])
+        } else {
+          this.route.navigate(['welcome'])
         }
       }
     );

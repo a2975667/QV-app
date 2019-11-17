@@ -26,7 +26,7 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  initCookie(user){
+  initCookie(user: User){
     this.cookieService.set('user_current_question_index', String(0));
     this.cookieService.set('user_complete_flag', String(user.complete_flag));
     this.cookieService.set('user_path', JSON.stringify(user.path));
@@ -37,7 +37,8 @@ export class WelcomeComponent implements OnInit {
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
         let userGP = this.route.snapshot.paramMap.get('id');
-        this.gService.getUserID(userGP).subscribe((user: User) => {
+        this.gService.getUserID(userGP).subscribe((user) => {
+          console.log(userGP)
           this.initCookie(user);
           this.router.navigate(['demographic']);
         })
