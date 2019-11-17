@@ -32,11 +32,13 @@ def welcome():
         "create_time": datetime.utcnow(),
         "complete_flag": False,
         "path_id": "",
-        "gp": ""
+        "gp": gp
     }
 
     userid = db.user.insert_one(user).inserted_id
     path_id, newpath = decide_path(gp)
+
+    print(newpath)
 
     # update user path
     user["path"] = newpath
@@ -44,7 +46,7 @@ def welcome():
     user["userid"] = userid
 
     # update user path
-    if path_id != "thanks":
+    if path_id != "thank_you":
         user["qualify"] = True
 
         db.user.update_one({
@@ -58,41 +60,6 @@ def welcome():
         user["qualify"] = False
         db.user.update_one({
             '_id': userid
-        }, {
-            '$set': user
-        }, upsert=False)
-
-        return jsonify({'ok': False}), 200
-
-    return jsonify(user), 200
-
-
-@app.route('/get_path', methods=['POST'])
-def get_new_path(gp):
-    """ This post request saves the demographic and returns the path
-    """
-    user = request.json
-
-    # get user demographic
-    # match with database
-    # TODO: fix user gp in schema
-    path_id, newpath = decide_path(user["gp"])
-
-    # update user path
-    if path_id != "thanks":
-        user["path"] = newpath
-        user["path_id"] = path_id
-        user["qualify"] = True
-        db.user.update_one({
-            '_id': user["userid"]
-        }, {
-            '$set': user
-        }, upsert=False)
-    else:
-        user["complete_flag"] = True
-        user["qualify"] = False
-        db.user.update_one({
-            '_id': user["userid"]
         }, {
             '$set': user
         }, upsert=False)
@@ -168,6 +135,18 @@ def demographic():
         return json.loads(f.read().decode('utf-8'))
 
 
+# thanks
+@app.route('/thank_you/<string:file_name>')
+def thanks(file_name):
+    """ returns the json file appropriate to the question set it wants to generate
+    """
+
+    file_name = '/'.join(['data', file_name])
+    filename = file_name+'.json'
+
+    with current_app.open_resource(filename) as f:
+        return json.loads(f.read().decode('utf-8'))
+
 @app.route('/submit-demographic', methods=['POST'])
 def submit_demographic():
     """submit donation to db"""
@@ -196,7 +175,6 @@ def show_subpath(file_name):
 @app.route('/complete')
 def complete():
     return request.json["userid"]
-
 
 @app.route('/admin/setup_db')
 def setup_route_db():
