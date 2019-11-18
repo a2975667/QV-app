@@ -34,6 +34,7 @@ export class LikertService {
       console.log(data);
       this.likertForm.next(data);
     });
+
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -46,10 +47,26 @@ export class LikertService {
     return throwError(
       'Something bad happened; please try again later.');
   };
-  
+  isQVTestResultFailed(data){
+    let pathIndex = Number(this.getCookieById('user_current_path_index'));
+    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    let currentFile =pathArray[pathIndex]['file'];
+    if(pathArray[pathIndex]['file']=='test_qv'){
+      let conditions = [
+        data['ac1']==="(T) True",
+        data['ac2']==="(F) False",
+        data['ac3']==="(T) True",
+        data['ac4']==="(T) True",
+      ]
+      return true;
+    } else {
+      return false;
+    }
+  }
   submit(data){
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    this.checkQVTestResult(data);
     this.cookieService.set('user_current_path_index', String(pathIndex+1));
     if (pathIndex+1 >= pathArray.length) {
       this.cookieService.deleteAll();

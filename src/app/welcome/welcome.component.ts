@@ -25,14 +25,28 @@ export class WelcomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(this.cookieService.check('user_id')){
+      let pathIndex = Number(this.cookieService.get('user_current_path_index'));
+      let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
+      let type: string = pathArray[pathIndex]['type'];    
+      if(type == 'normal'){
+        this.router.navigate(['likert']);
+      } else if(type == 'qv'){
+        this.router.navigate(['qv']);
+      } else {
+        this.router.navigate(['welcome']);
+      }
+    }
   }
+
   initCookie(user: User){
-    this.cookieService.set('user_current_question_index', String(0));
-    this.cookieService.set('user_complete_flag', String(user.complete_flag));
-    this.cookieService.set('user_path', JSON.stringify(user.path));
-    this.cookieService.set('user_id', user.userid);
-    this.cookieService.set('user_current_path_index', String(0));
+    this.cookieService.set('user_current_question_index', String(0),undefined,'/');
+    this.cookieService.set('user_complete_flag', String(user.complete_flag),undefined,'/');
+    this.cookieService.set('user_path', JSON.stringify(user.path),undefined,'/');
+    this.cookieService.set('user_id', user.userid,undefined,'/');
+    this.cookieService.set('user_current_path_index', String(0),undefined,'/');
   }
+
   createUser() {
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
@@ -46,5 +60,10 @@ export class WelcomeComponent implements OnInit {
         this.router.navigate(['demographic']);
       }
     }    
+  }
+
+  cancel() {
+      //TODO jump to thank you page since closeTab function 
+      //is not allowed in chrome 41+
   }
 }

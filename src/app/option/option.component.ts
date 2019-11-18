@@ -18,7 +18,6 @@ export class OptionComponent implements OnInit {
   currentQuestionIndex: number;
   constructor(
     private gService: GlobalService, 
-    private cookieService: CookieService
   ) { }
 
   ngOnInit() {
