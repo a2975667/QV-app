@@ -5,6 +5,7 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { DonationComponent } from './donation/donation.component';
 import { LikertComponent } from './likert/likert.component';
 import { DemographicComponent } from './demographic/demographic.component';
+import { CompleteComponent } from './complete/complete.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'demographic', component: DemographicComponent },
   { path: 'qv', component: QuestionnaireComponent},
   { path: 'donation', component: DonationComponent},
-  { path: 'likert', component: LikertComponent}
+  { path: 'likert', component: LikertComponent},
+  { path: 'complete', component: CompleteComponent},
 ]
 
 @NgModule({

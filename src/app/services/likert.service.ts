@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, throwError } from 'rxjs';
+import { BehaviorSubject, throwError, Observable, empty} from 'rxjs';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
@@ -21,9 +21,14 @@ export class LikertService {
     return this.cookieService.get(id);
   }
   getCurrentPath() :string {
-    let pathIndex = Number(this.getCookieById('user_current_path_index'));
-    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-    return pathArray[pathIndex]['file'];
+    if(!this.cookieService.check('user_id')){
+      this.router.navigate(['/']);
+      return null;
+    }else{
+      let pathIndex = Number(this.getCookieById('user_current_path_index'));
+      let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+      return pathArray[pathIndex]['file'];
+    }
   }
   requestForm(){
     let fileName: string = this.getCurrentPath();
@@ -51,14 +56,26 @@ export class LikertService {
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
     let currentFile =pathArray[pathIndex]['file'];
-    if(pathArray[pathIndex]['file']=='test_qv'){
+    if (currentFile==='test_qv') {
       let conditions = [
         data['ac1']==="(T) True",
         data['ac2']==="(F) False",
         data['ac3']==="(T) True",
         data['ac4']==="(T) True",
+        data['ac5']==="(4) 20993",
+        data['ac6']==="(4) 12345",
       ]
-      return true;
+      let noFailedQuestion = 0;
+      conditions.forEach(val =>{
+        if (!val) {
+          noFailedQuestion ++;
+        }
+      })
+      if (noFailedQuestion>2) {
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
@@ -66,14 +83,11 @@ export class LikertService {
   submit(data){
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-    this.checkQVTestResult(data);
-    this.cookieService.set('user_current_path_index', String(pathIndex+1));
-    if (pathIndex+1 >= pathArray.length) {
-      this.cookieService.deleteAll();
-      return this.http.post(`${this.requestUrl}/submit`, data).pipe(
-        catchError(this.handleError)
-      )
-    }
+    if(this.isQVTestResultFailed(data)){
+      // fail the QVTest and delete all cookies
+      return empty();
+    };
+    this.cookieService.set('user_current_path_index', String(pathIndex+1),undefined,'/');
     return this.http.post(`${this.requestUrl}/submit`, data).pipe(
       catchError(this.handleError)
     )

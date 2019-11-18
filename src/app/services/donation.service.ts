@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,8 @@ export class DonationService {
   organizations: BehaviorSubject<Array<Object>> = new BehaviorSubject([]);
   constructor(
     private http: HttpClient, 
+    private cookieService: CookieService,
+    private route: Router,
   ) { }
   requestOrganizations(){
     let donationAPI = `${this.requestUrl}/api/donation`;
@@ -31,12 +35,28 @@ export class DonationService {
     return throwError(
       'Something bad happened; please try again later.');
   };
+  getCookieById(id: string){
+    return this.cookieService.get(id);
+  }
   submit(data){
-    let submitAPI = `${this.requestUrl}/submit-donation`;
-    this.http.post(submitAPI,data).pipe(
-      catchError(this.handleError)
-    ).subscribe(result => {
-      console.log(result);
+    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    let pathIndex = Number(this.getCookieById('user_current_path_index'))+1;
+    console.log(pathArray);
+    console.log(pathIndex)
+    console.log(pathArray[pathIndex])
+    let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
+    this.http.get(completeJsonAPI).subscribe(completeJSON=>{
+      let userId = this.getCookieById('user_id');
+      this.cookieService.deleteAll('/');
+      let submitAPI = `${this.requestUrl}/submit-donation`;
+      this.http.post(submitAPI,{
+        donation:data
+      }).pipe(
+        catchError(this.handleError)
+      ).subscribe(result => {
+        this.route.navigate(['complete',{...completeJSON, userId: userId}])
+      })
     })
+    
   }
 }

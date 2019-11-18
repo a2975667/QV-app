@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { LikertComponent } from './likert/likert.component';
 import { SurveyComponent } from './survey/survey.component';
 import { DemographicComponent } from './demographic/demographic.component';
+import { CompleteComponent } from './complete/complete.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DemographicComponent } from './demographic/demographic.component';
     DonationComponent,
     LikertComponent,
     SurveyComponent,
-    DemographicComponent
+    DemographicComponent,
+    CompleteComponent
   ],
   imports: [
     BrowserModule,

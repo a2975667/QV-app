@@ -33,7 +33,6 @@ export class DemographicService {
       'Something bad happened; please try again later.');
   };
   submit(data){
-    console.log(data);
     let submitAPI = `${this.requestUrl}/submit-demographic`;
     return this.http.post(submitAPI, data).pipe(
       catchError(this.handleError)

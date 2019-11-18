@@ -25,9 +25,11 @@ export class LikertComponent implements OnInit {
       this.route.navigate(['likert']);
       this.liService.requestForm();
     } else if(type == 'qv'){
-      this.route.navigate(['qv'])
-    } else {
-      this.route.navigate(['welcome'])
+      this.route.navigate(['qv']);
+    } else if(type == 'donation'){
+      this.route.navigate(['donation']);
+    } else if(type == 'complete'){
+      this.route.navigate(['complete']);
     }
   }
 
@@ -41,9 +43,6 @@ export class LikertComponent implements OnInit {
   submit(data){
     this.liService.submit(data).subscribe(
       result => {
-        if(!this.cookieService.check('user_id')){
-          this.route.navigate(['donation']);
-        }
         this.decidePath();
       }
     );

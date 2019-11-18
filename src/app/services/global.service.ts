@@ -41,6 +41,9 @@ export class GlobalService {
   getCookieById(id: string) {
     return this.cookieService.get(id);
   }
+  setCookieById(id: string, val: string) {
+    this.cookieService.set(id, val, undefined, '/');
+  }
   getCurrentPath() :string {
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
@@ -91,13 +94,11 @@ export class GlobalService {
     let nextQuestionIndex: number = Number(this.getCookieById('user_current_question_index')) + 1;
     let submitData: submitPostSchema = this.generateSubmitPost(false);
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-
+    let pathIndex = Number(this.getCookieById('user_current_path_index'));
     if (nextQuestionIndex >= this.questionnaire.question_list.length) {
       nextQuestionIndex = 0;
-      let pathIndex = Number(this.getCookieById('user_current_path_index'));
-      this.cookieService.set('user_current_path_index', String(pathIndex+1));
-      if (pathIndex+1 >= pathArray.length) {
-        this.cookieService.deleteAll();
+      this.setCookieById('user_current_path_index', String(pathIndex+1));
+      if(pathArray[pathIndex+1]['type']==="donation"){
         submitData.complete_flag = true;
         return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
           catchError(this.handleError)
@@ -106,16 +107,16 @@ export class GlobalService {
         });
       }
     }
-    if(pathArray[Number(this.getCookieById('user_current_path_index'))]['type']=='normal'){
+    if(pathArray[pathIndex+1]['type']=='normal'){
       nextQuestionIndex = 0;
-      this.cookieService.set('user_current_question_index', String(nextQuestionIndex));
+      this.setCookieById('user_current_question_index', String(nextQuestionIndex));
       return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
         catchError(this.handleError)
       ).subscribe(data => {
         this.router.navigate(['likert']);
       });
     }else{
-      this.cookieService.set('user_current_question_index', String(nextQuestionIndex));
+      this.setCookieById('user_current_question_index', String(nextQuestionIndex));
       this.getQuestionnaire();
       submitData = this.generateSubmitPost(false);
       return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(

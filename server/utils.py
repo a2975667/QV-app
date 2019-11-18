@@ -84,14 +84,14 @@ def decide_path(gp):
 	}
 
 	# 8 path
-	p1 = [likert_p1, likert_p2, donation, complete_short]
+	p1 = [likert_p1, likert_p2, donation, thank_short]
 	p2 = [qv_example, qv_test, qv_p1_036, qv_p1_108, qv_p2_036, qv_p2_108, donation, thank_complete]
 	p3 = [qv_example, qv_test, qv_p1_036, qv_p1_324, qv_p2_036, qv_p2_324, donation, thank_complete]
 	p4 = [qv_example, qv_test, qv_p1_108, qv_p1_324, qv_p2_108, qv_p2_324, donation, thank_complete]
 	p5 = [qv_example, qv_test, qv_p1_108, qv_p1_036, qv_p2_108, qv_p2_036, donation, thank_complete]
 	p6 = [qv_example, qv_test, qv_p1_324, qv_p1_036, qv_p2_324, qv_p2_036, donation, thank_complete]
 	p7 = [qv_example, qv_test, qv_p1_324, qv_p1_108, qv_p2_324, qv_p2_108, donation, thank_complete]
-	p8 = [likert_p1, likert_p2, donation, complete_short]
+	p8 = [likert_p1, likert_p2, donation, thank_short]
 	thank_you = [thank_full]
 
 	# objectify paths to variable names
