@@ -118,7 +118,7 @@ def decide_path(gp):
 	# early return if min_count == max_for path
 	if min_count >= gp_status["max"]:
 		print("return_path: thanks")
-		return "thanks", thanks
+		return "thank_you", thank_you
 
 	# identify candidate paths
 	candidate_path = []
@@ -133,6 +133,5 @@ def decide_path(gp):
 	db.gp_status.find_one_and_replace({"gp":gp}, gp_status)
 
 	return selected_path, collection[selected_path]
-	# return for testing
-	# return g_test
+
 
