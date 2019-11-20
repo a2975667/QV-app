@@ -15,7 +15,8 @@ from server.utils import decide_path
 
 
 @app.route('/')
-def root():
+@app.route('/welcome/<string:filename>')
+def root(filename):
     return app.send_static_file('index.html')
 
 
@@ -26,7 +27,7 @@ def welcome():
     """
 
     gp = request.json["gp"]
-    
+
     user = {
         "userid": "",
         "create_time": datetime.utcnow(),
