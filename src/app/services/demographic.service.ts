@@ -7,10 +7,10 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class DemographicService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   demoForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
   ) { }
   requestForm(){
     let donationAPI = `${this.requestUrl}/api/demographic`;

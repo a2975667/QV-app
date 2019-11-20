@@ -1008,7 +1008,7 @@
             var DemographicService = /** @class */ (function () {
                 function DemographicService(http) {
                     this.http = http;
-                    this.requestUrl = 'http://localhost:5000';
+                    this.requestUrl = '';
                     this.demoForm = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
                 }
                 DemographicService.prototype.requestForm = function () {
@@ -1067,7 +1067,7 @@
                     this.http = http;
                     this.cookieService = cookieService;
                     this.route = route;
-                    this.requestUrl = 'http://localhost:5000';
+                    this.requestUrl = '';
                     this.organizations = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
                 }
                 DonationService.prototype.requestOrganizations = function () {
@@ -1152,7 +1152,7 @@
                     this.http = http;
                     this.cookieService = cookieService;
                     this.router = router;
-                    this.requestUrl = 'http://localhost:5000';
+                    this.requestUrl = '';
                     this.questionSet = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
                     this.votes = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
                     this.usedCredits = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -1300,7 +1300,7 @@
                     this.http = http;
                     this.cookieService = cookieService;
                     this.router = router;
-                    this.requestUrl = 'http://localhost:5000';
+                    this.requestUrl = '';
                     this.likertForm = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
                 }
                 LikertService.prototype.getCookieById = function (id) {

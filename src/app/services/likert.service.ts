@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LikertService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   likertForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private cookieService: CookieService,
     private router: Router,
   ) { }

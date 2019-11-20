@@ -1051,7 +1051,7 @@ __webpack_require__.r(__webpack_exports__);
 let DemographicService = class DemographicService {
     constructor(http) {
         this.http = http;
-        this.requestUrl = 'http://localhost:5000';
+        this.requestUrl = '';
         this.demoForm = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
     }
     requestForm() {
@@ -1120,7 +1120,7 @@ let DonationService = class DonationService {
         this.http = http;
         this.cookieService = cookieService;
         this.route = route;
-        this.requestUrl = 'http://localhost:5000';
+        this.requestUrl = '';
         this.organizations = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
     }
     requestOrganizations() {
@@ -1213,7 +1213,7 @@ let GlobalService = class GlobalService {
         this.http = http;
         this.cookieService = cookieService;
         this.router = router;
-        this.requestUrl = 'http://localhost:5000';
+        this.requestUrl = '';
         this.questionSet = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.votes = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.usedCredits = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -1369,7 +1369,7 @@ let LikertService = class LikertService {
         this.http = http;
         this.cookieService = cookieService;
         this.router = router;
-        this.requestUrl = 'http://localhost:5000';
+        this.requestUrl = '';
         this.likertForm = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
     }
     getCookieById(id) {
