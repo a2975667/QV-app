@@ -17,6 +17,7 @@ import { LikertComponent } from './likert/likert.component';
 import { SurveyComponent } from './survey/survey.component';
 import { DemographicComponent } from './demographic/demographic.component';
 import { CompleteComponent } from './complete/complete.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CompleteComponent } from './complete/complete.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ProgressbarModule.forRoot(),
-    FormsModule
+    FormsModule,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]

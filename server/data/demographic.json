@@ -1,7 +1,7 @@
 {
-	"title": "Software developer survey.",
+	"title": "Demographic Survey",
 	"pages": [{
-		"title": "What operating system do you use?",
+		"title": "Please answer following questions.",
 		"questions": [{
 				"type": "dropdown",
 				"name": "gender",

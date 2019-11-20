@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { Questionnaire } from '../schema/questionnaire';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-summary',
@@ -8,15 +9,21 @@ import { Questionnaire } from '../schema/questionnaire';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  usedCredits: number;
+  usedCredits: number = 0;
   totalCredits: number;
-  percentage: number;
+  percentage: number = 0;
   type: string;
+  @ViewChild('confirmSubmit',{static: true}) private confirmSubmitSwal: SwalComponent;
+
   constructor(
     private gService: GlobalService,
   ) { }
   submit() {
-    this.gService.submit();
+    if(this.usedCredits == 0) {
+      this.confirmSubmitSwal.fire();
+    }else{
+      this.gService.submit();
+    }
   }
   ngOnInit() {
     this.gService.questionSet.subscribe((data: Questionnaire) =>{

@@ -68,9 +68,9 @@ def decide_path(gp):
 		"file":"thank_full"
 	}
 
-	complete_short = {
+	thank_short = {
 		"type":"complete",
-		"file":"complete_short"
+		"file":"thank_short"
 	}
 
 	thank_complete = {

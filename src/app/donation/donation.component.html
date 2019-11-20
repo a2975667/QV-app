@@ -23,7 +23,7 @@
                         {{org.org}}
                     </div>
                     <div class="col-3">         
-                            $ <input [(ngModel)]="donations[i]" (keyup)="caculate(i)" style="display: inline; width: 80%"type="number" min="0" class="form-control" oninput="validity.valid||(value='');" id="org.orgId">     
+                            $ <input min="0" max="50" [(ngModel)]="donations[i]" (keyup)="caculate(i)" style="display: inline; width: 80%"type="number" min="0" class="form-control" oninput="validity.valid||(value='');" id="org.orgId">     
                     </div>
                 </div>
                 <div class="row">
