@@ -75,8 +75,7 @@ def disqualify():
     user = request.json
     gp = user['gp']
     user_id = user['userid']
-    user_path_id = ['path_id']
-
+    user_path_id = user['path_id']
     user["qualify"] = True
     user["complete_flag"] = True
 

@@ -64,13 +64,13 @@ export class LikertService {
         data['ac4']==="(T) True",
         data['ac5']==="(4) 20993",
         data['ac6']==="(4) 12345",
-      ]
+      ];
       let noFailedQuestion = 0;
       conditions.forEach(val =>{
         if (!val) {
           noFailedQuestion ++;
         }
-      })
+      });
       if (noFailedQuestion>2) {
         return true;
       } else {
@@ -82,9 +82,23 @@ export class LikertService {
   }
   submit(data){
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
-    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    let userId = this.cookieService.get('user_id');
+    let gp = this.cookieService.get('user_gp');
+    let path_id = this.cookieService.get('user_path_id');
     if(this.isQVTestResultFailed(data)){
       // fail the QVTest and delete all cookies
+      this.http.post(`${this.requestUrl}/api/disqualify`, {
+        gp: gp,
+        userid: userId,
+        path_id: path_id
+      }).subscribe(res => {
+        this.cookieService.deleteAll('/');
+        this.http.get(`${this.requestUrl}/thank_you/thank_attention`).subscribe(
+          data => {
+            this.router.navigate(['complete', {userId: userId, ...data}])
+          }
+        )
+      })
       return empty();
     };
     this.cookieService.set('user_current_path_index', String(pathIndex+1),undefined,'/');

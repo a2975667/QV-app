@@ -40,6 +40,8 @@ export class WelcomeComponent implements OnInit {
   }
 
   initCookie(user: User){
+    this.cookieService.set('user_gp', user.gp, undefined, '/');
+    this.cookieService.set('user_path_id', user.path_id, undefined, '/');
     this.cookieService.set('user_current_question_index', String(0),undefined,'/');
     this.cookieService.set('user_complete_flag', String(user.complete_flag),undefined,'/');
     this.cookieService.set('user_path', JSON.stringify(user.path),undefined,'/');
@@ -51,9 +53,14 @@ export class WelcomeComponent implements OnInit {
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
         let userGP = this.route.snapshot.paramMap.get('id');
-        this.gService.getUserID(userGP).subscribe((user) => {
+        this.gService.getUserID(userGP).subscribe((user: User) => {
           this.initCookie(user);
-          this.router.navigate(['demographic']);
+          if(user.path_id == "thank_you"){
+            this.cookieService.deleteAll('/');
+            this.router.navigate(['complete']);
+          }else{
+            this.router.navigate(['demographic']);
+          }
         })
       }else{
         this.router.navigate(['demographic']);

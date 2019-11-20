@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n    <div class=\"col-sm-1\">\n        QV App\n    </div>\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\">\n    </div>\n</nav>\n<div class=\"container\">\n    <div class=\"container\">\n        <h1>Donation Page</h1>\n        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.      </p>\n    </div>\n    <div class=\"container\">\n        <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item\" *ngFor=\"let org of this.organizations; let i = index\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        {{org.orgId}}}                                       \n                    </div>\n                    <div class=\"col-8\">\n                        {{org.org}}\n                    </div>\n                    <div class=\"col-3\">         \n                            $ <input [(ngModel)]=\"donations[i]\" (keyup)=\"caculate(i)\" style=\"display: inline; width: 80%\"type=\"number\" min=\"0\" class=\"form-control\" oninput=\"validity.valid||(value='');\" id=\"org.orgId\">     \n                    </div>\n                </div>\n                <div class=\"row\">\n                        <div class=\"col-1\"></div>\n                        <div class=\"col-8\">{{org.description}}</div>\n                        <div class=\"col-3\"> </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        Subtotal:\n                    </div>\n                    <div class=\"col-8\">\n                    </div>\n                    <div class=\"col-3\">         \n                            $ {{sum}}\n                    </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                    <div class=\"row\">\n                        <div class=\"col-2\">\n                            Summary:\n                        </div>\n                        <div class=\"col-8\">\n                            If you win the lottery, you will donate ${{sum}} and receive ${{MAX-sum}} that we will inform you at ...@...\n                        </div>\n                        <div class=\"col-2\">    \n                            <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n                        </div>\n                    </div>\n                </li>\n        </ul>\n    </div>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n    <div class=\"col-sm-1\">\n        QV App\n    </div>\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\">\n    </div>\n</nav>\n<div class=\"container\">\n    <div class=\"container\">\n        <h1>Donation Page</h1>\n        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.      </p>\n    </div>\n    <div class=\"container\">\n        <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item\" *ngFor=\"let org of this.organizations; let i = index\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        {{org.orgId}}}                                       \n                    </div>\n                    <div class=\"col-8\">\n                        {{org.org}}\n                    </div>\n                    <div class=\"col-3\">         \n                            $ <input min=\"0\" max=\"50\" [(ngModel)]=\"donations[i]\" (keyup)=\"caculate(i)\" style=\"display: inline; width: 80%\"type=\"number\" min=\"0\" class=\"form-control\" oninput=\"validity.valid||(value='');\" id=\"org.orgId\">     \n                    </div>\n                </div>\n                <div class=\"row\">\n                        <div class=\"col-1\"></div>\n                        <div class=\"col-8\">{{org.description}}</div>\n                        <div class=\"col-3\"> </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        Subtotal:\n                    </div>\n                    <div class=\"col-8\">\n                    </div>\n                    <div class=\"col-3\">         \n                            $ {{sum}}\n                    </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                    <div class=\"row\">\n                        <div class=\"col-2\">\n                            Summary:\n                        </div>\n                        <div class=\"col-8\">\n                            If you win the lottery, you will donate ${{sum}} and receive ${{MAX-sum}} that we will inform you at ...@...\n                        </div>\n                        <div class=\"col-2\">    \n                            <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n                        </div>\n                    </div>\n                </li>\n        </ul>\n    </div>\n</div>\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/likert/likert.component.html": 
@@ -105,7 +105,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"container sticky\">\n    <div class=\"card\">\n        <h5 class=\"card-header\">Summary</h5>\n            <div class=\"card-body\">\n                <h5 class=\"card-title\">Used {{usedCredits}} out of {{totalCredits}} credits</h5>\n                <p class=\"card-text\">\n                    <progressbar [animate]=\"false\" [value]=\"percentage\" [type]=\"type\"></progressbar>\n                </p>\n                <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n            </div>\n    </div>\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<swal\n  #confirmSubmit\n  title=\"Submit with 0 vote?\"\n  text=\"This cannot be undone\"\n  icon=\"question\"\n  [showCancelButton]=\"true\"\n  [focusCancel]=\"true\"\n  (confirm)=\"this.gService.submit()\">\n</swal>\n<div class=\"container sticky\">\n    <div class=\"card\">\n        <h5 class=\"card-header\">Summary</h5>\n            <div class=\"card-body\">\n                <h5 class=\"card-title\">Used {{usedCredits}} out of {{totalCredits}} credits</h5>\n                <p class=\"card-text\">\n                    <progressbar [animate]=\"false\" [value]=\"percentage\" [type]=\"type\"></progressbar>\n                </p>\n                <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n            </div>\n    </div>\n</div>\n\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/survey/survey.component.html": 
@@ -477,7 +477,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".header {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  background-color: aqua;\n  z-index: 1090;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9tbnQvZC8xM19CYXNoL1FWLWFwcC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtFQUNBLFdBQUE7RUFDQSxNQUFBO0VBQ0Esc0JBQUE7RUFDQSxhQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVyIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTtcclxuICAgIHotaW5kZXg6IDEwOTA7XHJcbn0iLCIuaGVhZGVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB3aWR0aDogMTAwJTtcbiAgdG9wOiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhO1xuICB6LWluZGV4OiAxMDkwO1xufSJdfQ== */");
+            /* harmony default export */ __webpack_exports__["default"] = (".header {\n  position: fixed;\n  width: 100%;\n  top: 0;\n  background-color: aqua;\n  z-index: 1090;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9oYW5rL0Rlc2t0b3Avd29ya3BsYWNlL1FWLWV4cC9zcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZUFBQTtFQUNBLFdBQUE7RUFDQSxNQUFBO0VBQ0Esc0JBQUE7RUFDQSxhQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVyIHtcclxuICAgIHBvc2l0aW9uOiBmaXhlZDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTtcclxuICAgIHotaW5kZXg6IDEwOTA7XHJcbn0iLCIuaGVhZGVyIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB3aWR0aDogMTAwJTtcbiAgdG9wOiAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhO1xuICB6LWluZGV4OiAxMDkwO1xufSJdfQ== */");
             /***/ 
         }),
         /***/ "./src/app/app.component.ts": 
@@ -534,6 +534,7 @@
             /* harmony import */ var _survey_survey_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./survey/survey.component */ "./src/app/survey/survey.component.ts");
             /* harmony import */ var _demographic_demographic_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./demographic/demographic.component */ "./src/app/demographic/demographic.component.ts");
             /* harmony import */ var _complete_complete_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./complete/complete.component */ "./src/app/complete/complete.component.ts");
+            /* harmony import */ var _sweetalert2_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @sweetalert2/ngx-sweetalert2 */ "./node_modules/@sweetalert2/ngx-sweetalert2/fesm2015/sweetalert2-ngx-sweetalert2.js");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -559,7 +560,8 @@
                         _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                         _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
                         ngx_bootstrap_progressbar__WEBPACK_IMPORTED_MODULE_6__["ProgressbarModule"].forRoot(),
-                        _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"]
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_14__["FormsModule"],
+                        _sweetalert2_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_19__["SweetAlert2Module"].forRoot(),
                     ],
                     providers: [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"]],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -844,7 +846,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".tick {\n  color: green;\n}\n\n.cross {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9tbnQvZC8xM19CYXNoL1FWLWFwcC9zcmMvYXBwL29wdGlvbi9vcHRpb24uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL29wdGlvbi9vcHRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0FDQ0o7O0FEQ0E7RUFDSSxVQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9vcHRpb24vb3B0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRpY2sge1xyXG4gICAgY29sb3I6IGdyZWVuO1xyXG59XHJcbi5jcm9zcyB7XHJcbiAgICBjb2xvcjogcmVkO1xyXG59IiwiLnRpY2sge1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5jcm9zcyB7XG4gIGNvbG9yOiByZWQ7XG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = (".tick {\n  color: green;\n}\n\n.cross {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9oYW5rL0Rlc2t0b3Avd29ya3BsYWNlL1FWLWV4cC9zcmMvYXBwL29wdGlvbi9vcHRpb24uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL29wdGlvbi9vcHRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxZQUFBO0FDQ0o7O0FEQ0E7RUFDSSxVQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9vcHRpb24vb3B0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRpY2sge1xyXG4gICAgY29sb3I6IGdyZWVuO1xyXG59XHJcbi5jcm9zcyB7XHJcbiAgICBjb2xvcjogcmVkO1xyXG59IiwiLnRpY2sge1xuICBjb2xvcjogZ3JlZW47XG59XG5cbi5jcm9zcyB7XG4gIGNvbG9yOiByZWQ7XG59Il19 */");
             /***/ 
         }),
         /***/ "./src/app/option/option.component.ts": 
@@ -1366,10 +1368,23 @@
                     }
                 };
                 LikertService.prototype.submit = function (data) {
+                    var _this = this;
                     var pathIndex = Number(this.getCookieById('user_current_path_index'));
-                    var pathArray = JSON.parse(this.getCookieById('user_path'));
+                    var userId = this.cookieService.get('user_id');
+                    var gp = this.cookieService.get('user_gp');
+                    var path_id = this.cookieService.get('user_path_id');
                     if (this.isQVTestResultFailed(data)) {
                         // fail the QVTest and delete all cookies
+                        this.http.post(this.requestUrl + "/api/disqualify", {
+                            gp: gp,
+                            userid: userId,
+                            path_id: path_id
+                        }).subscribe(function (res) {
+                            _this.cookieService.deleteAll('/');
+                            _this.http.get(_this.requestUrl + "/thank_you/thank_attention").subscribe(function (data) {
+                                _this.router.navigate(['complete', Object.assign({ userId: userId }, data)]);
+                            });
+                        });
                         return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["empty"])();
                     }
                     ;
@@ -1398,7 +1413,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = (".sticky {\n  position: -webkit-sticky;\n  /* Safari */\n  position: sticky;\n  top: 0;\n  z-index: 2000;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9tbnQvZC8xM19CYXNoL1FWLWFwcC9zcmMvYXBwL3N1bW1hcnkvc3VtbWFyeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc3VtbWFyeS9zdW1tYXJ5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksd0JBQUE7RUFBMEIsV0FBQTtFQUMxQixnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9zdW1tYXJ5L3N1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc3RpY2t5IHtcclxuICAgIHBvc2l0aW9uOiAtd2Via2l0LXN0aWNreTsgLyogU2FmYXJpICovXHJcbiAgICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gICAgdG9wOiAwO1xyXG4gICAgei1pbmRleDogMjAwMDtcclxufSIsIi5zdGlja3kge1xuICBwb3NpdGlvbjogLXdlYmtpdC1zdGlja3k7XG4gIC8qIFNhZmFyaSAqL1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHotaW5kZXg6IDIwMDA7XG59Il19 */");
+            /* harmony default export */ __webpack_exports__["default"] = (".sticky {\n  position: -webkit-sticky;\n  /* Safari */\n  position: sticky;\n  top: 0;\n  z-index: 3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9oYW5rL0Rlc2t0b3Avd29ya3BsYWNlL1FWLWV4cC9zcmMvYXBwL3N1bW1hcnkvc3VtbWFyeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc3VtbWFyeS9zdW1tYXJ5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksd0JBQUE7RUFBMEIsV0FBQTtFQUMxQixnQkFBQTtFQUNBLE1BQUE7RUFDQSxVQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9zdW1tYXJ5L3N1bW1hcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc3RpY2t5IHtcclxuICAgIHBvc2l0aW9uOiAtd2Via2l0LXN0aWNreTsgLyogU2FmYXJpICovXHJcbiAgICBwb3NpdGlvbjogc3RpY2t5O1xyXG4gICAgdG9wOiAwO1xyXG4gICAgei1pbmRleDogMztcclxufSIsIi5zdGlja3kge1xuICBwb3NpdGlvbjogLXdlYmtpdC1zdGlja3k7XG4gIC8qIFNhZmFyaSAqL1xuICBwb3NpdGlvbjogc3RpY2t5O1xuICB0b3A6IDA7XG4gIHotaW5kZXg6IDM7XG59Il19 */");
             /***/ 
         }),
         /***/ "./src/app/summary/summary.component.ts": 
@@ -1416,9 +1431,16 @@
             var SummaryComponent = /** @class */ (function () {
                 function SummaryComponent(gService) {
                     this.gService = gService;
+                    this.usedCredits = 0;
+                    this.percentage = 0;
                 }
                 SummaryComponent.prototype.submit = function () {
-                    this.gService.submit();
+                    if (this.usedCredits == 0) {
+                        this.confirmSubmitSwal.fire();
+                    }
+                    else {
+                        this.gService.submit();
+                    }
                 };
                 SummaryComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -1448,6 +1470,9 @@
             SummaryComponent.ctorParameters = function () { return [
                 { type: _services_global_service__WEBPACK_IMPORTED_MODULE_2__["GlobalService"] }
             ]; };
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('confirmSubmit', { static: true })
+            ], SummaryComponent.prototype, "confirmSubmitSwal", void 0);
             SummaryComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-summary',
@@ -1573,6 +1598,8 @@
                     }
                 };
                 WelcomeComponent.prototype.initCookie = function (user) {
+                    this.cookieService.set('user_gp', user.gp, undefined, '/');
+                    this.cookieService.set('user_path_id', user.path_id, undefined, '/');
                     this.cookieService.set('user_current_question_index', String(0), undefined, '/');
                     this.cookieService.set('user_complete_flag', String(user.complete_flag), undefined, '/');
                     this.cookieService.set('user_path', JSON.stringify(user.path), undefined, '/');
@@ -1586,7 +1613,13 @@
                             var userGP = this.route.snapshot.paramMap.get('id');
                             this.gService.getUserID(userGP).subscribe(function (user) {
                                 _this.initCookie(user);
-                                _this.router.navigate(['demographic']);
+                                if (user.path_id == "thank_you") {
+                                    _this.cookieService.deleteAll('/');
+                                    _this.router.navigate(['complete']);
+                                }
+                                else {
+                                    _this.router.navigate(['demographic']);
+                                }
                             });
                         }
                         else {
@@ -1667,7 +1700,7 @@
           \***************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(/*! /mnt/d/13_Bash/QV-app/src/main.ts */ "./src/main.ts");
+            module.exports = __webpack_require__(/*! /Users/hank/Desktop/workplace/QV-exp/src/main.ts */ "./src/main.ts");
             /***/ 
         })
     }, [[0, "runtime", "vendor"]]]);
