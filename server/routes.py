@@ -17,7 +17,7 @@ from bson.objectid import ObjectId
 @app.route('/welcome/<string:gp>')
 def root(gp):
 	print("servering:", gp)
-	return app.send_static_file('public/index.html')
+	return app.send_static_file('index.html')
 
 
 @app.route('/createUser', methods=['POST'])
