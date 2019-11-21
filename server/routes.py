@@ -156,9 +156,6 @@ def submit_demographic():
 
     print(request.json)
     insert_data = request.json
-    # TODO: make path decision here,
-    # return path if moving to next step,
-    # otherwise generate a thank you page
     db.demographic.insert_one(insert_data)
     return jsonify({'ok': True}), 200
 
@@ -184,6 +181,10 @@ def complete():
 def setup_route_db():
     """comment out for production"""
     db["gp_status"].drop()
+    db["user"].drop()
+    db["demographic"].drop()
+    db["donation"].drop()
+    db["data"].drop()
 
     list_of_path = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"]
 
