@@ -36,6 +36,7 @@ To start the server
 ```
 ng build && flask run
 ```
+visit: localhost:5000/welcome/gp? to test
 
 ## Features
 - Supports naive QV

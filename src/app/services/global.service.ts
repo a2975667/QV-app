@@ -20,7 +20,7 @@ function calTotalCredits(votesArray) {
   providedIn: 'root'
 })
 export class GlobalService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   @Output() questionSet: EventEmitter<object> = new EventEmitter();
   @Output() votes: EventEmitter<Array<Array<number>>> = new EventEmitter();
   @Output() usedCredits: EventEmitter<Array<number>> = new EventEmitter();
@@ -28,7 +28,7 @@ export class GlobalService {
   usedCreditsArray: Array<number>;
   questionnaire: Questionnaire;
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private cookieService: CookieService,
     private router: Router,
   ) { }
@@ -73,7 +73,7 @@ export class GlobalService {
     const result = this.http.get(`${this.requestUrl}/qv/${path}`)
     .pipe(
       catchError(this.handleError)
-    ) 
+    )
     let currentQuestion = this.getCookieById('user_current_question_index');
     result.subscribe((data: Questionnaire) => {
       console.log(data)
@@ -124,7 +124,7 @@ export class GlobalService {
       ).subscribe(data => {
         console.log(data)
       });
-    } 
+    }
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

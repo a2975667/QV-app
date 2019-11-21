@@ -4,7 +4,8 @@
 		"title": "Where should the government allocate resource?",
 		"questions": [{
 			"type": "matrix",
-			"name": "allocate_likert_p1",
+			"name": "allocate_likert_p2",
+			"isAllRowRequired": true,
 			"title": "The government is trying to decide how to allocate resources across a number of issues. For each of the issues listed below, how important do you think the issue is to you and that more effort and resources should be contributed toward the issue?",
 			"columns": [{
 				"value": 1,

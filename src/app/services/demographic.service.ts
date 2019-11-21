@@ -8,11 +8,15 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class DemographicService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   demoForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
+<<<<<<< HEAD
     private cookieService: CookieService,
     private http: HttpClient, 
+=======
+    private http: HttpClient,
+>>>>>>> 9f754efbe142afa6b1325046f54012912f46fc6b
   ) { }
   requestForm(){
     let donationAPI = `${this.requestUrl}/api/demographic`;

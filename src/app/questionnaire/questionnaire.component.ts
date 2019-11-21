@@ -23,11 +23,11 @@ export class QuestionnaireComponent implements OnInit {
     private route: Router,
     private cookieService: CookieService
   ) { }
- 
+
   ngOnInit() {
     let pathIndex = Number(this.cookieService.get('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
-    let type: string = pathArray[pathIndex]['type'];    
+    let type: string = pathArray[pathIndex]['type'];
     if(type == 'normal'){
       this.route.navigate(['likert']);
     } else if(type == 'qv'){
@@ -42,7 +42,7 @@ export class QuestionnaireComponent implements OnInit {
         this.numFile = pathArray.length;
         let pathIndex = Number(this.cookieService.get('user_current_path_index'));
         this.currentFile = pathIndex + 1;
-      }) 
+      })
       this.gService.getQuestionnaire();
     } else if(type == 'donation') {
       this.route.navigate(['donation']);

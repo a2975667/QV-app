@@ -6,7 +6,7 @@
 	  {
 		"qid":2.108,
 		"question":"Please express how much you care about each of the issues using the survey below.",
-		"description":"The government is trying to decide how to allocate resources across a number of issues. For each of the issues listed below, how important do you think the issue is to you and that more effort and resources should be contributed toward the issue?",
+		"description":"The government is trying to decide how to allocate resources across a number of issues. For each of the issues listed below, how important do you think the issue is to you and that more effort and resources should be contributed toward the issue? \\n Using Binary Quadratic Voting, you have a total of 108 credits for the following 9 issues. You do not need to use up all the points, but you cannot exceed 108 credits.",
 		"options":[
 		  {
 			  "o_id": "a",

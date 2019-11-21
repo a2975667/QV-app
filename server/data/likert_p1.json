@@ -5,6 +5,7 @@
 		"questions": [{
 				"type": "matrix",
 				"name": "allocate_likert_p1",
+				"isAllRowRequired": true,
 				"title": "The US government is trying to decide how to allocate resources across several causes. For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?",
 				"columns": [{
 					"value": 1,
@@ -24,9 +25,11 @@
 				}],
 				"rows": [{
 					"value": "a",
+					"isRequired": true,
 					"text": "Pets and Animals (Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
 				}, {
 					"value": "b",
+					"isRequired": true,
 					"text": "Arts, Culture, Humanities (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
 				}, {
 					"value": "c",

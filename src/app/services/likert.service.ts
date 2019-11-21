@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LikertService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   likertForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private cookieService: CookieService,
     private router: Router,
   ) { }
@@ -60,8 +60,8 @@ export class LikertService {
       let conditions = [
         data['ac1']==="(T) True",
         data['ac2']==="(F) False",
-        data['ac3']==="(T) True",
-        data['ac4']==="(T) True",
+        data['ac3']==="(F) False",
+        data['ac4']==="(F) False",
         data['ac5']==="(4) 20993",
         data['ac6']==="(4) 12345",
       ];

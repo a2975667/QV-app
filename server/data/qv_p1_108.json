@@ -6,13 +6,8 @@
 	  {
 		"qid":1.108,
 		"question":"Where should the government allocate resource?",
-		"description":"The US government is trying to decide how to allocate resources across several causes. For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?",
+		"description":"The US government is trying to decide how to allocate resources across several causes. \\n For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause? \\n Using Binary Quadratic Voting, you have a total of 108 credits for the following 9 causes. You do not need to use up all the points, but you cannot exceed 108 credits.",
 		"options":[
-		  {
-			"o_id":1,
-			"option":"Option1",
-			"description":"Description for option1"
-		  },
 		  {
 			  "o_id": "a",
 			  "option": "Pets and Animals",

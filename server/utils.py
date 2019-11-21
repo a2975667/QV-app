@@ -117,7 +117,6 @@ def decide_path(gp):
 
 	# early return if min_count == max_for path
 	if min_count >= gp_status["max"]:
-		print("return_path: thanks")
 		return "thank_you", thank_you
 
 	# identify candidate paths

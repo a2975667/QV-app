@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class DonationService {
-  requestUrl = 'http://localhost:5000';
+  requestUrl = '';
   organizations: BehaviorSubject<Array<Object>> = new BehaviorSubject([]);
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
     private cookieService: CookieService,
     private route: Router,
   ) { }
@@ -55,6 +55,6 @@ export class DonationService {
         this.route.navigate(['complete',{...completeJSON, userId: userId}])
       })
     })
-    
+
   }
 }
