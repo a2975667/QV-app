@@ -14,10 +14,11 @@ from server import app, db
 from server.utils import decide_path
 from bson.objectid import ObjectId
 
+
+@app.route('/')
 @app.route('/welcome/<string:gp>')
 def root(gp):
 	print("servering:", gp)
-	print(os.getcwd())
 	return app.send_static_file('index.html')
 
 
