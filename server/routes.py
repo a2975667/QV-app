@@ -12,6 +12,7 @@ from flask_cors import CORS
 from datetime import datetime
 from server import app, db
 from server.utils import decide_path
+from bson.objectid import ObjectId
 
 
 @app.route('/')
@@ -78,16 +79,17 @@ def disqualify():
     user_path_id = user['path_id']
     user["qualify"] = False
     user["complete_flag"] = True
-
+    print(user)
     gp_status = db.gp_status.find({"gp": gp})[0]
     gp_status["count"][(int(user_path_id[1]))-1]["count"] -= 1
     db.gp_status.find_one_and_replace({"gp": gp}, gp_status)
 
-    db.user.update_one({
-        '_id': user["userid"]
+    final = db.user.update_one({
+        '_id': ObjectId(user["userid"])
     }, {
         '$set': user
     }, upsert=False)
+
     return jsonify({'ok': True}), 200
 
 
@@ -147,6 +149,7 @@ def thanks(file_name):
     with current_app.open_resource(filename) as f:
         return json.loads(f.read().decode('utf-8'))
 
+
 @app.route('/submit-demographic', methods=['POST'])
 def submit_demographic():
     """submit donation to db"""
@@ -175,6 +178,7 @@ def show_subpath(file_name):
 @app.route('/complete')
 def complete():
     return request.json["userid"]
+
 
 @app.route('/admin/setup_db')
 def setup_route_db():

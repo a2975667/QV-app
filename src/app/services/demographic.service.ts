@@ -11,12 +11,8 @@ export class DemographicService {
   requestUrl = '';
   demoForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
-<<<<<<< HEAD
     private cookieService: CookieService,
-    private http: HttpClient, 
-=======
     private http: HttpClient,
->>>>>>> 9f754efbe142afa6b1325046f54012912f46fc6b
   ) { }
   requestForm(){
     let donationAPI = `${this.requestUrl}/api/demographic`;
@@ -45,7 +41,7 @@ export class DemographicService {
     let userId = this.getCookieById('user_id');
 
     let submitAPI = `${this.requestUrl}/submit-demographic`;
-    return this.http.post(submitAPI, 
+    return this.http.post(submitAPI,
       {
         userId: userId,
         data: data

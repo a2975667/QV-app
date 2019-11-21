@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n    <div class=\"col-sm-1\">\n        <br>\n    </div>\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\">\n    </div>\n</nav>\n<div class=\"container\">\n    <div class=\"container\">\n        <h1>Donation Page</h1>\n        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.      </p>\n    </div>\n    <div class=\"container\">\n        <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item\" *ngFor=\"let org of this.organizations; let i = index\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        {{org.orgId}}}\n                    </div>\n                    <div class=\"col-8\">\n                        {{org.org}}\n                    </div>\n                    <div class=\"col-3\">\n                            $ <input min=\"0\" max=\"50\" [(ngModel)]=\"donations[i]\" (keyup)=\"caculate(i)\" style=\"display: inline; width: 80%\"type=\"number\" min=\"0\" class=\"form-control\" oninput=\"validity.valid||(value='');\" id=\"org.orgId\">\n                    </div>\n                </div>\n                <div class=\"row\">\n                        <div class=\"col-1\"></div>\n                        <div class=\"col-8\">{{org.description}}</div>\n                        <div class=\"col-3\"> </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        Subtotal:\n                    </div>\n                    <div class=\"col-8\">\n                    </div>\n                    <div class=\"col-3\">\n                            $ {{sum}}\n                    </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                    <div class=\"row\">\n                        <div class=\"col-2\">\n                            Summary:\n                        </div>\n                        <div class=\"col-8\">\n                            If you win the lottery, you will donate ${{sum}} and receive ${{MAX-sum}}.\n                        </div>\n                        <div class=\"col-2\">\n                            <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n                        </div>\n                    </div>\n                </li>\n        </ul>\n    </div>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n    <div class=\"col-sm-1\">\n        <br>\n    </div>\n    <div class=\"col-sm\">\n    </div>\n    <div class=\"col-sm\">\n    </div>\n</nav>\n<div class=\"container\">\n    <div class=\"container\">\n        <h1>Donation Page</h1>\n        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.      </p>\n    </div>\n    <div class=\"container\">\n        <ul class=\"list-group list-group-flush\">\n            <li class=\"list-group-item\" *ngFor=\"let org of this.organizations; let i = index\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        {{org.orgId}}}\n                    </div>\n                    <div class=\"col-8\">\n                        {{org.org}}\n                    </div>\n                    <div class=\"col-3\">         \n                            $ <input min=\"0\" max=\"50\" [(ngModel)]=\"donations[org.orgId]\" (keyup)=\"caculate(org.orgId)\" style=\"display: inline; width: 80%\"type=\"number\" min=\"0\" class=\"form-control\" oninput=\"validity.valid||(value='');\" id=\"org.orgId\">     \n                    </div>\n                </div>\n                <div class=\"row\">\n                        <div class=\"col-1\"></div>\n                        <div class=\"col-8\">{{org.description}}</div>\n                        <div class=\"col-3\"> </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                <div class=\"row\">\n                    <div class=\"col-1\">\n                        Subtotal:\n                    </div>\n                    <div class=\"col-8\">\n                    </div>\n                    <div class=\"col-3\">\n                            $ {{sum}}\n                    </div>\n                </div>\n            </li>\n            <li class=\"list-group-item\">\n                    <div class=\"row\">\n                        <div class=\"col-2\">\n                            Summary:\n                        </div>\n                        <div class=\"col-8\">\n                            If you win the lottery, you will donate ${{sum}} and receive ${{MAX-sum}}.\n                        </div>\n                        <div class=\"col-2\">\n                            <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n                        </div>\n                    </div>\n                </li>\n        </ul>\n    </div>\n</div>\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/likert/likert.component.html": 
@@ -127,7 +127,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n\t<div class=\"col-sm-1\">\n\t\t<br>\n\t</div>\n\t<div class=\"col-sm\">\n\t</div>\n\t<div class=\"col-sm\">\n\t</div>\n</nav>\n\n<div class=\"container\">\n\t<form (ngSubmit)=\"createUser()\" class=\"was-validated\" #validForm=\"ngForm\">\n\t\t<div class=\"container\">\n\t\t\t<h1>Welcome to the study</h1>\n\t\t\t<h4>Donation Causes Study Online Consent Form</h4>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<p>\n\t\t\t\tYou are being asked to participate in a voluntary research study. The purpose of this study is to understand your level of interest and concern on a number of causes in the society. Participating in this study will involve filling out two surveys related to this topic and perform a donation decision task. Your participation will last around 15 minutes. There are no known risks associated with our study.\n\t\t\t\t<br><br>\n\t\t\t\t- Principal Investigator Name and Title: Dr. Hari Sundaram\n\t\t\t\t<br>\n\t\t\t\t- Department and Institution: Department of Computer Science, University of Illinois at Urbana Champaign\n\t\t\t\t<br>\n\t\t\t\t- Contact Information: <a target=\"_blank\" href=\"mailto:hs1@illinois.edu\">Dr. Hari Sundaram</a>\n\n\t\t\t</p>\n\t\t\t<h5>What procedures are involved?</h5>\n\t\t\t<p>\n\t\t\t\t<b></b> You will first be asked to complete two surveys related to your degree of interest and concern on a number of causes. Then you will enter a lottery, and will be asked to decide how you would like to allocate the potential bonus from the lottery to a list of charities and organizations and the amount for yourself to keep.\n\t\t\t</p>\n\t\t\t<h5>Will my study-related information be kept confidential?</h5>\n\t\t\t<p>\n\t\t\t\tFaculty, students, and staff who may see your information will maintain confidentiality to the extent of laws and university policies. Personal identifiers are neither collected nor will be published or presented.\n\t\t\t</p>\n\t\t\t<h5>Will I be reimbursed for any expenses or paid for my participation in this research?</h5>\n\t\t\t<p>\n\t\t\t\tYou will be paid $2 through MTurk when you are done with the study. You may also be paid a bonus from the lottery through MTurk if you win the lottery.\n\t\t\t</p>\n\t\t\t<h5>Can I withdraw or be removed from the study?</h5>\n\t\t\t<p>\n\t\t\t\tIf you decide to participate, you are free to withdraw your consent and discontinue participation at any time. The researchers also have the right to stop your participation in this study without your consent if they believe it is in your best interests, and/or you were to object to any future changes that may be made in the study plan. Your participation in this research is voluntary. Your decision whether or not to participate, or to withdraw after beginning participation, will not affect your current or future dealings with the University of Illinois at Urbana-Champaign.\n\t\t\t</p>\n\t\t\t<h5>Will data collected from me be used for any other research?</h5>\n\t\t\t<p>\n\t\t\t\tYour de-identified information could be used for future research without additional informed consent.\n\t\t\t</p>\n\n\t\t\t<h5>Who should I contact if I have questions?</h5>\n\t\t\t<p>\n\t\t\t\tQuestions about this research study should be directed to Dr. Hari Sundaram (hs1@illinois.edu) in the Department of Computer Science at University of Illinois, Urbana-Champaign. If you have any questions about your rights as a participant in this study or any concerns or complaints, please contact the University of Illinois Institutional Review Board at 217-333-2670 or via irb@illinois.edu.\n\t\t\t</p>\n\t\t\t<h5>How will the results be disseminated?</h5>\n\t\t\t<p>\n\t\t\t\tThe results will be disseminated via journal articles, academic paper, conference presentations, PhD theses, and/or Open Science Framework. Please download and print this consent form if you would like to retain a copy for your records.\n\n\t\t\t</p>\n\n\t\t\t<h5> Please use a Laptop, Tablet or PC to complete this survey. </h5>\n\t\t\t<h5>By continuing, I certify that I have read this form and volunteer to participate in this research study.<br></h5>\n\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_one\" class=\"form-check-input\" type=\"checkbox\" name=\"condition1\"\n\t\t\t\t\t\trequired> I have read and understand the above consent form.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_two\" class=\"form-check-input\" type=\"checkbox\" name=\"condition2\"\n\t\t\t\t\t\trequired> I certify that I am 18 years old or older.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_three\" class=\"form-check-input\" type=\"checkbox\" name=\"condition3\"\n\t\t\t\t\t\trequired> I understand that by clicking the continue button to enter the survey, I indicate my willingness to voluntarily take part in this study.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<button type=\"submit\" class=\"mr-2 btn btn-success\" [disabled]=\"!validForm.form.valid\">\n\t\t\t\tStart Questionaire\n\t\t\t</button>\n\t\t\t<button (click)=\"cancel()\"type=\"button\" class=\"mr-2 btn btn-danger\" [disabled]=\"validForm.form.valid\">\n\t\t\t\tCancel\n\t\t\t</button>\n\t\t</div>\n\t</form>\n\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-light\">\n\t<div class=\"col-sm-1\">\n\t\t<br>\n\t</div>\n\t<div class=\"col-sm\">\n\t</div>\n\t<div class=\"col-sm\">\n\t</div>\n</nav>\n\n<div class=\"container\">\n\t<form (ngSubmit)=\"createUser()\" class=\"was-validated\" #validForm=\"ngForm\">\n\t\t<div class=\"container\">\n\t\t\t<h1>Welcome to the study</h1>\n\t\t\t<h4>Donation Causes Study Online Consent Form</h4>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<p>\n\t\t\t\tYou are being asked to participate in a voluntary research study. The purpose of this study is to understand your level of interest and concern on a number of causes in the society. Participating in this study will involve filling out two surveys related to this topic and perform a donation decision task. Your participation will last around 15 minutes. There are no known risks associated with our study.\n\t\t\t\t<br><br>\n\t\t\t\t- Principal Investigator Name and Title: Dr. Hari Sundaram\n\t\t\t\t<br>\n\t\t\t\t- Department and Institution: Department of Computer Science, University of Illinois at Urbana Champaign\n\t\t\t\t<br>\n\t\t\t\t- Contact Information: <a target=\"_blank\" href=\"mailto:hs1@illinois.edu\">Dr. Hari Sundaram</a>\n\n\t\t\t</p>\n\t\t\t<h5>What procedures are involved?</h5>\n\t\t\t<p>\n\t\t\t\t<b></b> You will first be asked to complete two surveys related to your degree of interest and concern on a number of causes. Then you will enter a lottery, and will be asked to decide how you would like to allocate the potential bonus from the lottery to a list of charities and organizations and the amount for yourself to keep.\n\t\t\t</p>\n\t\t\t<h5>Will my study-related information be kept confidential?</h5>\n\t\t\t<p>\n\t\t\t\tFaculty, students, and staff who may see your information will maintain confidentiality to the extent of laws and university policies. Personal identifiers are neither collected nor will be published or presented.\n\t\t\t</p>\n\t\t\t<h5>Will I be reimbursed for any expenses or paid for my participation in this research?</h5>\n\t\t\t<p>\n\t\t\t\tYou will be paid $2 through MTurk when you are done with the study. You may also be paid a bonus from the lottery through MTurk if you win the lottery.\n\t\t\t</p>\n\t\t\t<h5>Can I withdraw or be removed from the study?</h5>\n\t\t\t<p>\n\t\t\t\tIf you decide to participate, you are free to withdraw your consent and discontinue participation at any time. The researchers also have the right to stop your participation in this study without your consent if they believe it is in your best interests, and/or you were to object to any future changes that may be made in the study plan. Your participation in this research is voluntary. Your decision whether or not to participate, or to withdraw after beginning participation, will not affect your current or future dealings with the University of Illinois at Urbana-Champaign.\n\t\t\t</p>\n\t\t\t<h5>Will data collected from me be used for any other research?</h5>\n\t\t\t<p>\n\t\t\t\tYour de-identified information could be used for future research without additional informed consent.\n\t\t\t</p>\n\n\t\t\t<h5>Who should I contact if I have questions?</h5>\n\t\t\t<p>\n\t\t\t\tQuestions about this research study should be directed to Dr. Hari Sundaram (hs1@illinois.edu) in the Department of Computer Science at University of Illinois, Urbana-Champaign. If you have any questions about your rights as a participant in this study or any concerns or complaints, please contact the University of Illinois Institutional Review Board at 217-333-2670 or via irb@illinois.edu.\n\t\t\t</p>\n\t\t\t<h5>How will the results be disseminated?</h5>\n\t\t\t<p>\n\t\t\t\tThe results will be disseminated via journal articles, academic paper, conference presentations, PhD theses, and/or Open Science Framework. Please download and print this consent form if you would like to retain a copy for your records.\n\n\t\t\t</p>\n\n\t\t\t<h5> Please use a Laptop, Tablet or PC to complete this survey. </h5>\n\t\t\t<h5>By continuing, I certify that I have read this form and volunteer to participate in this research study.<br></h5>\n\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_one\" class=\"form-check-input\" type=\"checkbox\" name=\"condition1\"\n\t\t\t\t\t\trequired> I have read and understand the above consent form.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_two\" class=\"form-check-input\" type=\"checkbox\" name=\"condition2\"\n\t\t\t\t\t\trequired> I certify that I am 18 years old or older.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t\t<div class=\"form-group form-check\">\n\t\t\t\t<label class=\"form-check-label\">\n\t\t\t\t\t<input [(ngModel)]=\"condition_three\" class=\"form-check-input\" type=\"checkbox\" name=\"condition3\"\n\t\t\t\t\t\trequired> I understand that by clicking the continue button to enter the survey, I indicate my willingness to voluntarily take part in this study.\n\t\t\t\t\t<div class=\"valid-feedback\">Valid.</div>\n\t\t\t\t\t<div class=\"invalid-feedback\">Check this checkbox to continue.</div>\n\t\t\t\t</label>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<button type=\"submit\" class=\"mr-2 btn btn-success\" [disabled]=\"!validForm.form.valid || isSubmit\">\n\t\t\t\tStart Questionaire\n\t\t\t</button>\n\t\t\t<button (click)=\"cancel()\"type=\"button\" class=\"mr-2 btn btn-danger\" [disabled]=\"validForm.form.valid\">\n\t\t\t\tCancel\n\t\t\t</button>\n\t\t</div>\n\t</form>\n\n</div>\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -715,20 +715,35 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _services_donation_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/donation.service */ "./src/app/services/donation.service.ts");
+            /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+            /* harmony import */ var util__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/ __webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_3__);
+            function shuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+                while (0 !== currentIndex) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex -= 1;
+                    temporaryValue = array[currentIndex];
+                    array[currentIndex] = array[randomIndex];
+                    array[randomIndex] = temporaryValue;
+                }
+                return array;
+            }
             var DonationComponent = /** @class */ (function () {
                 function DonationComponent(donationService) {
                     this.donationService = donationService;
                     this.MAX = 50;
                     this.organizations = [];
                     this.sum = 0;
-                    this.donations = [];
                 }
                 DonationComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var ogObserver = {
                         next: function (ogs) {
-                            _this.organizations = ogs;
-                            _this.donations = Array(_this.organizations.length).fill(0);
+                            _this.organizations = shuffle(ogs);
+                            _this.donations = {};
+                            _this.organizations.forEach(function (v) {
+                                _this.donations[v['orgId']] = 0;
+                            });
                         },
                         error: function (error) { return console.log('A error: ' + error); },
                         complete: function () { return console.log('ogObserver complete!'); }
@@ -736,18 +751,24 @@
                     this.donationService.organizations.subscribe(ogObserver);
                     this.donationService.requestOrganizations();
                 };
-                DonationComponent.prototype.caculate = function (i) {
+                DonationComponent.prototype.caculate = function (orgId) {
                     var _this = this;
                     this.sum = 0;
-                    this.donations.forEach(function (element) {
-                        _this.sum = _this.sum + element;
+                    Object.keys(this.donations).forEach(function (key) {
+                        _this.sum = _this.sum + _this.donations[key];
                     });
                     if (this.sum > this.MAX) {
-                        this.donations[i] = this.donations[i] - (this.sum - this.MAX);
+                        this.donations[orgId] = this.donations[orgId] - (this.sum - this.MAX);
                         this.sum = this.MAX;
                     }
                 };
                 DonationComponent.prototype.submit = function () {
+                    var _this = this;
+                    Object.keys(this.donations).forEach(function (key) {
+                        if (Object(util__WEBPACK_IMPORTED_MODULE_3__["isNull"])(_this.donations[key])) {
+                            _this.donations[key] = 0;
+                        }
+                    });
                     this.donationService.submit(this.donations);
                 };
                 return DonationComponent;
@@ -1010,8 +1031,10 @@
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
             /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
             var DemographicService = /** @class */ (function () {
-                function DemographicService(http) {
+                function DemographicService(cookieService, http) {
+                    this.cookieService = cookieService;
                     this.http = http;
                     this.requestUrl = '';
                     this.demoForm = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
@@ -1035,13 +1058,21 @@
                     return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])('Something bad happened; please try again later.');
                 };
                 ;
+                DemographicService.prototype.getCookieById = function (id) {
+                    return this.cookieService.get(id);
+                };
                 DemographicService.prototype.submit = function (data) {
+                    var userId = this.getCookieById('user_id');
                     var submitAPI = this.requestUrl + "/submit-demographic";
-                    return this.http.post(submitAPI, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                    return this.http.post(submitAPI, {
+                        userId: userId,
+                        data: data
+                    }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
                 };
                 return DemographicService;
             }());
             DemographicService.ctorParameters = function () { return [
+                { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
                 { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
             ]; };
             DemographicService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1100,16 +1131,14 @@
                     var _this = this;
                     var pathArray = JSON.parse(this.getCookieById('user_path'));
                     var pathIndex = Number(this.getCookieById('user_current_path_index')) + 1;
-                    console.log(pathArray);
-                    console.log(pathIndex);
-                    console.log(pathArray[pathIndex]);
                     var completeJsonAPI = this.requestUrl + "/thank_you/" + pathArray[pathIndex]['file'];
                     this.http.get(completeJsonAPI).subscribe(function (completeJSON) {
                         var userId = _this.getCookieById('user_id');
                         _this.cookieService.deleteAll('/');
                         var submitAPI = _this.requestUrl + "/submit-donation";
                         _this.http.post(submitAPI, {
-                            donation: data
+                            donation: data,
+                            userId: userId,
                         }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(_this.handleError)).subscribe(function (result) {
                             _this.route.navigate(['complete', Object.assign({}, completeJSON, { userId: userId })]);
                         });
@@ -1394,7 +1423,10 @@
                     }
                     ;
                     this.cookieService.set('user_current_path_index', String(pathIndex + 1), undefined, '/');
-                    return this.http.post(this.requestUrl + "/submit", data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
+                    return this.http.post(this.requestUrl + "/submit", {
+                        data: data,
+                        userId: userId,
+                    }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError));
                 };
                 return LikertService;
             }());
@@ -1613,6 +1645,7 @@
                 };
                 WelcomeComponent.prototype.createUser = function () {
                     var _this = this;
+                    this.isSubmit = true;
                     if (this.condition_one && this.condition_two && this.condition_three) {
                         if (!this.cookieService.check('user_id')) {
                             var userGP = this.route.snapshot.paramMap.get('id');
