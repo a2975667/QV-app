@@ -16,9 +16,9 @@ from bson.objectid import ObjectId
 
 
 @app.route('/')
-@app.route('/welcome/<gp>')
+@app.route('/welcome/<string:gp>')
 def root(gp):
-	print(gp)
+	print("servering:", gp)
 	return app.send_static_file('index.html')
 
 

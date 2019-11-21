@@ -21,7 +21,7 @@ class JSONEncoder(json.JSONEncoder):
 
 
 # create the flask object
-app = Flask(__name__, template_folder="data", static_folder="public", static_url_path='')
+app = Flask(__name__, template_folder="data", static_folder="./public", static_url_path='')
 CORS(app)
 load_dotenv()
 
@@ -30,7 +30,7 @@ if os.getenv("mongo_url"):
 	client = pymongo.MongoClient(mongo_url)
 	db = client.results
 else:
-    print("Database located... looking for local mongodb")
+    print("Cannot locate Database..exiting now.")
     exit()
 
 # use the modified encoder class to handle ObjectId & datetime object while jsonifying the response.
