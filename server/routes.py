@@ -14,12 +14,10 @@ from server import app, db
 from server.utils import decide_path
 from bson.objectid import ObjectId
 
-
-@app.route('/')
 @app.route('/welcome/<string:gp>')
 def root(gp):
 	print("servering:", gp)
-	return app.send_static_file('index.html')
+	return app.send_static_file('public/index.html')
 
 
 @app.route('/createUser', methods=['POST'])
