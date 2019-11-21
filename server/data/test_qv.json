@@ -15,7 +15,7 @@
 			},{
 				"type": "dropdown",
 				"name": "ac2",
-				"title": "In a Quadratic Voting survey, you can cast as many votes on an option as you like.",
+				"title": "In a Quadratic Voting survey, you can cast as many votes on an option even if you have exceeded maximum voice credits.",
 				"isRequired": true,
 				"colCount": 0,
 				"choices": [
@@ -25,7 +25,7 @@
 			},{
 				"type": "dropdown",
 				"name": "ac3",
-				"title": "In a Quadratic Voting survey, one vote costs one voice credit.",
+				"title": "In a Quadratic Voting survey, each vote costs one voice credit.",
 				"isRequired": true,
 				"colCount": 0,
 				"choices": [

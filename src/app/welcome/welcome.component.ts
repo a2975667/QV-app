@@ -55,6 +55,7 @@ export class WelcomeComponent implements OnInit {
         let userGP = this.route.snapshot.paramMap.get('id');
         this.gService.getUserID(userGP).subscribe((user: User) => {
           this.initCookie(user);
+          console.log(user)
           if(user.path_id == "thank_you"){
             this.cookieService.deleteAll('/');
             this.router.navigate(['complete']);
@@ -69,6 +70,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   cancel() {
+    alert("Please close the browser.");
       //TODO jump to thank you page since closeTab function 
       //is not allowed in chrome 41+
   }

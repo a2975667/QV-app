@@ -128,13 +128,6 @@
 					"(g) $150,000+",
 					"(h) Prefer not to disclose"
 				]
-			},
-			{
-				"name": "email",
-				"type": "text",
-				"title": "Please enter your e-mail (only for lottery):",
-				"placeHolder": "example@site.com",
-				"isRequired": false
 			}
 		]
 	}]

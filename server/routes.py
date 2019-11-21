@@ -65,7 +65,7 @@ def welcome():
             '$set': user
         }, upsert=False)
 
-        return jsonify({'ok': False}), 200
+        return jsonify(user), 200
 
     return jsonify(user), 200
 
@@ -76,7 +76,7 @@ def disqualify():
     gp = user['gp']
     user_id = user['userid']
     user_path_id = user['path_id']
-    user["qualify"] = True
+    user["qualify"] = False
     user["complete_flag"] = True
 
     gp_status = db.gp_status.find({"gp": gp})[0]
@@ -208,7 +208,7 @@ def setup_route_db():
         db["gp_status"].insert_one({
             "gp": gp,
             "max": gp_max[gp],
-            "count": [{'path': x, 'count': randint(0, gp_max[gp])} for x in list_of_path]
+            "count": [{'path': x, 'count': 0} for x in list_of_path]
         })
-
+    # "count": [{'path': x, 'count': randint(0, gp_max[gp])} for x in list_of_path],
     return jsonify({"ok": True})
