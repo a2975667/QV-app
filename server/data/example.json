@@ -16,7 +16,7 @@
         {
           "o_id":2,
           "option":"Italian",
-          "description":"Spageitti and bread"
+          "description":"Spaghitti and bread"
         },
         {
           "o_id":3,
@@ -31,7 +31,7 @@
         {
           "o_id":5,
           "option":"Mexican",
-          "description":"Taco and berrito"
+          "description":"Tacos and burrito"
         }
       ],
       "totalCredits":20,
