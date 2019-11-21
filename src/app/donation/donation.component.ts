@@ -1,16 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { DonationService } from '../services/donation.service';
+import { isNull } from 'util';
 
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 @Component({
   selector: 'app-donation',
   templateUrl: './donation.component.html',
   styleUrls: ['./donation.component.scss']
 })
+
 export class DonationComponent implements OnInit {
   MAX = 50;
   organizations: Array<Object> = [];
   sum: number = 0;
-  donations = [];
+  donations;
   constructor(
     private donationService: DonationService
   ) { }
@@ -18,8 +31,11 @@ export class DonationComponent implements OnInit {
   ngOnInit() {
     let ogObserver = {
       next: ogs => {
-        this.organizations=ogs
-        this.donations =Array(this.organizations.length).fill(0)
+        this.organizations=shuffle(ogs)
+        this.donations = {}
+        this.organizations.forEach(v => {
+          this.donations[v['orgId']] = 0;
+        })
       },
       error: error => console.log('A error: ' + error),
       complete: () => console.log('ogObserver complete!')
@@ -27,17 +43,22 @@ export class DonationComponent implements OnInit {
     this.donationService.organizations.subscribe(ogObserver)
     this.donationService.requestOrganizations();
   }
-  caculate(i){
+  caculate(orgId){
     this.sum = 0;
-    this.donations.forEach(element => {
-      this.sum = this.sum + element;
+    Object.keys(this.donations).forEach(key => {
+      this.sum = this.sum + this.donations[key];
     });
     if(this.sum > this.MAX){
-      this.donations[i] = this.donations[i]-(this.sum - this.MAX)
+      this.donations[orgId] = this.donations[orgId]-(this.sum - this.MAX)
       this.sum = this.MAX;
     }
   }
   submit(){
+    Object.keys(this.donations).forEach(key => {
+      if(isNull(this.donations[key])){
+        this.donations[key] = 0;
+      }
+    });
     this.donationService.submit(this.donations);
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,7 @@ export class DemographicService {
   requestUrl = 'http://localhost:5000';
   demoForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
+    private cookieService: CookieService,
     private http: HttpClient, 
   ) { }
   requestForm(){
@@ -32,9 +34,18 @@ export class DemographicService {
     return throwError(
       'Something bad happened; please try again later.');
   };
+  getCookieById(id: string){
+    return this.cookieService.get(id);
+  }
   submit(data){
+    let userId = this.getCookieById('user_id');
+
     let submitAPI = `${this.requestUrl}/submit-demographic`;
-    return this.http.post(submitAPI, data).pipe(
+    return this.http.post(submitAPI, 
+      {
+        userId: userId,
+        data: data
+      }).pipe(
       catchError(this.handleError)
     );
   }

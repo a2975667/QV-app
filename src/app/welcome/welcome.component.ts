@@ -16,6 +16,7 @@ export class WelcomeComponent implements OnInit {
   condition_one: boolean = false;
   condition_two: boolean = false;
   condition_three: boolean = false;
+  isSubmit: boolean;
 
   constructor(
     private gService: GlobalService, 
@@ -50,6 +51,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   createUser() {
+    this.isSubmit = true;
     if(this.condition_one && this.condition_two && this.condition_three){
       if(!this.cookieService.check('user_id')){
         let userGP = this.route.snapshot.paramMap.get('id');
