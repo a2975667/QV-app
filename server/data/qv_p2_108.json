@@ -6,7 +6,7 @@
 	  {
 		"qid":2.108,
 		"question":"Please express how much you care about each of the issues using the survey below.",
-		"description":"The government is trying to decide how to allocate resources across a number of issues. For each of the issues listed below, how important do you think the issue is to you and that more effort and resources should be contributed toward the issue? \\n Using Binary Quadratic Voting, you have a total of 108 credits for the following 9 issues. You do not need to use up all the points, but you cannot exceed 108 credits.",
+		"description":"<p>The US government is trying to decide how to allocate resources across several causes. For each of the causes listed below, <b>how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?</b> <br><br> Please express your opinion using Quadratic Voting as described above. You have a total of <b> 108 credits</b> for the following 9 causes. You do not need to use up all the credits, but you cannot exceed 108 credits. <br><br> If you think the government should <b>allocate more resources</b> to a certain cause, you can cast upvotes to the cause. If you believe the government should <b>allocate fewer resources</b> on a certain cause, you can cast downvotes for that option. </p>",
 		"options":[
 		  {
 			  "o_id": "a",

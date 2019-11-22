@@ -1,7 +1,7 @@
 {
 	"title": "Testing your understanding of QV",
 	"pages": [{
-		"title": "Please answer the following questions?",
+		"title": "Please answer the following questions",
 		"questions": [{
 				"type": "dropdown",
 				"name": "ac1",
@@ -15,7 +15,7 @@
 			},{
 				"type": "dropdown",
 				"name": "ac2",
-				"title": "In a Quadratic Voting survey, you can cast as many votes on an option even if you have exceeded maximum voice credits.",
+				"title": "In a Quadratic Voting survey, you can cast as many votes on an option as you like even if you have exceeded the maximum voice credits.",
 				"isRequired": true,
 				"colCount": 0,
 				"choices": [

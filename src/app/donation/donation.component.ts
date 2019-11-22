@@ -20,7 +20,7 @@ function shuffle(array) {
 })
 
 export class DonationComponent implements OnInit {
-  MAX = 50;
+  MAX = 35;
   organizations: Array<Object> = [];
   sum: number = 0;
   donations;

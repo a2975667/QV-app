@@ -1,7 +1,7 @@
 {
-	"title": "Where should the government allocate resources?",
+	"title": "Where should the government allocate the resources?",
 	"pages": [{
-		"title": "Where should the government allocate resources?",
+		"title": "Where should the government allocate the resources?",
 		"questions": [{
 				"type": "matrix",
 				"name": "allocate_likert_p1",
@@ -26,32 +26,32 @@
 				"rows": [{
 					"value": "a",
 					"isRequired": true,
-					"text": "Pets and Animals<br />(Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
+					"text": "Pets and Animals   >>   (Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
 				}, {
 					"value": "b",
 					"isRequired": true,
-					"text": "Arts, Culture, Humanities \\n (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
+					"text": "Arts, Culture, Humanities   >>   (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
 				}, {
 					"value": "c",
-					"text": "Education (Early Childhood Programs and Services; Youth Education Programs and Services; Adult Education Programs and Services; Special Education; Education Policy and Reform; Scholarship and Financial Support)"
+					"text": "Education   >>   (Early Childhood Programs and Services; Youth Education Programs and Services; Adult Education Programs and Services; Special Education; Education Policy and Reform; Scholarship and Financial Support)"
 				}, {
 					"value": "d",
-					"text": "Environment (Environmental Protection and Conservation; Botanical Gardens, Parks and Nature Centers)"
+					"text": "Environment   >>   (Environmental Protection and Conservation; Botanical Gardens, Parks and Nature Centers)"
 				}, {
 					"value": "e",
-					"text": "Health (Diseases, Disorders, and Disciplines; Patient and Family Support; Treatment and Prevention Services; Medical Research)"
+					"text": "Health   >>   (Diseases, Disorders, and Disciplines; Patient and Family Support; Treatment and Prevention Services; Medical Research)"
 				}, {
 					"value": "f",
-					"text": "Human Services (Children’s and Family Services; Youth Development, Shelter, and Crisis Services; Food Banks, Food Pantries, and Food Distribution; Multipurpose Human Service Organizations; Homeless Services; Social Services)"
+					"text": "Human Services   >>   (Children’s and Family Services; Youth Development, Shelter, and Crisis Services; Food Banks, Food Pantries, and Food Distribution; Multipurpose Human Service Organizations; Homeless Services; Social Services)"
 				}, {
 					"value": "g",
-					"text": "International (Development and Relief Services; International Peace, Security, and Affairs; Humanitarian Relief Supplies)"
+					"text": "International   >>   (Development and Relief Services; International Peace, Security, and Affairs; Humanitarian Relief Supplies)"
 				}, {
 					"value": "h",
-					"text": "Faith and Spiritual (Religious Activities; Religious Media and Broadcasting)"
+					"text": "Faith and Spiritual   >>   (Religious Activities; Religious Media and Broadcasting)"
 				}, {
 					"value": "i",
-					"text": "Veteran (Wounded Troops Services, Military Social Services, Military Family Support)"
+					"text": "Veteran   >>   (Wounded Troops Services, Military Social Services, Military Family Support)"
 				}]
 			}
 		]
