@@ -10,7 +10,7 @@
 				"colCount": 0,
 				"choices": [
 					"(a) Woman",
-					"(b) Men",
+					"(b) Man",
 					"(c) Non-binary",
 					"(d) Prefer not to disclose",
 					"(e) Prefer to Self-describe (continue to next question)"
@@ -46,7 +46,8 @@
 				"colCount": 0,
 				"choices": [
 					"(a) Yes",
-					"(b) No"
+					"(b) No",
+					"(c) prefer not to disclose"
 				]
 			},
 			{
@@ -60,7 +61,8 @@
 					"(b) Asian",
 					"(c) Black or African American",
 					"(d) Native Hawaiian or Other Pacific Islander",
-					"(e) White"
+					"(e) White",
+					"(f) prefer not to disclose"
 				]
 			},
 			{

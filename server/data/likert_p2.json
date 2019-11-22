@@ -1,7 +1,7 @@
 {
-	"title": "Where should the government allocate resource?",
+	"title": "Where should the government allocate resources?",
 	"pages": [{
-		"title": "Where should the government allocate resource?",
+		"title": "Where should the government allocate resources?",
 		"questions": [{
 			"type": "matrix",
 			"name": "allocate_likert_p2",

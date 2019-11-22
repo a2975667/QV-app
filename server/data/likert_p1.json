@@ -26,11 +26,11 @@
 				"rows": [{
 					"value": "a",
 					"isRequired": true,
-					"text": "Pets and Animals (Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
+					"text": "Pets and Animals \\n (Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
 				}, {
 					"value": "b",
 					"isRequired": true,
-					"text": "Arts, Culture, Humanities (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
+					"text": "Arts, Culture, Humanities \\n (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
 				}, {
 					"value": "c",
 					"text": "Education (Early Childhood Programs and Services; Youth Education Programs and Services; Adult Education Programs and Services; Special Education; Education Policy and Reform; Scholarship and Financial Support)"
