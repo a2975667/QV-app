@@ -61,7 +61,8 @@
 			<b>You cannot exceed the budget of given voice credits, but you do not have to use up all the available credits either. </b> You can see the total number of voice credits you have and the amount of credits you have spent already in the “Summary” section below.
 		</p>
 	<hr>
-	<p>{{questionDes}}</p>
+	<div [innerHTML]="questionDes"></div>
+	<!--<p>{{questionDes}}</p>-->
 </div>
 <app-summary></app-summary>
 <app-option></app-option>
