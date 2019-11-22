@@ -1,41 +1,38 @@
 {
-  "setting":{
-    "style":"binary"
-  },
-  "question_list":[
-    {
-      "qid":1,
-      "question":"Example: What to get for dinner",
-      "description":"This is a playground designed to help you understand how to use Qudrative Voting. Your friend is asking your preference for the type of food to get for the dinner party tonight. Please cast up and down votes for each of the cuisine listed. In this example, you will be given a total of 20 voice credits. Please play around with the votes. When your ready, submit your results and move on. We will be testing your understanding of quadratic voting in the next page so make sure you understand how to use QV.",
-      "options":[
-        {
-          "o_id":1,
-          "option":"American",
-          "description":"Burgers, fries and ribs"
-        },
-        {
-          "o_id":2,
-          "option":"Italian",
-          "description":"Spaghitti and bread"
-        },
-        {
-          "o_id":3,
-          "option":"Chinese",
-          "description":"Orange chicken and rice"
-        },
-        {
-          "o_id":4,
-          "option":"Japanese",
-          "description":"Sushi and rolls"
-        },
-        {
-          "o_id":5,
-          "option":"Mexican",
-          "description":"Tacos and burrito"
-        }
-      ],
-      "totalCredits":20,
-      "reset": true
-    }
-  ]
+	"setting": {
+		"style": "binary"
+	},
+	"question_list": [{
+		"qid": 1,
+		"question": "Dry Run: Understanding what is Quadratic Voting",
+		"description": "<p>This is a playground designed to help you understand how to use <b>Quadratic Voting</b>. <br> Your friend is asking your preference for the type of food to get for the dinner party tonight. Please cast up and down votes for each of the cuisine listed. In this example, you will be given a total of 20 voice credits. <br> Please play around with the votes. When you are ready, submit your results and move on. We will be testing your understanding of quadratic voting in the next page so make sure you understand how to use QV.</p>",
+		"options": [{
+				"o_id": 1,
+				"option": "American",
+				"description": "Burgers, fries and ribs"
+			},
+			{
+				"o_id": 2,
+				"option": "Italian",
+				"description": "Spaghitti and bread"
+			},
+			{
+				"o_id": 3,
+				"option": "Chinese",
+				"description": "Orange chicken and rice"
+			},
+			{
+				"o_id": 4,
+				"option": "Japanese",
+				"description": "Sushi and rolls"
+			},
+			{
+				"o_id": 5,
+				"option": "Mexican",
+				"description": "Tacos and burrito"
+			}
+		],
+		"totalCredits": 20,
+		"reset": true
+	}]
 }

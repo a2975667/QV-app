@@ -30,7 +30,7 @@ if os.getenv("mongo_url"):
 	client = pymongo.MongoClient(mongo_url)
 	db = client.results
 else:
-    print("Database located... looking for local mongodb")
+    print("Cannot locate Database..exiting now.")
     exit()
 
 # use the modified encoder class to handle ObjectId & datetime object while jsonifying the response.
