@@ -9,8 +9,8 @@
 				"isRequired": true,
 				"colCount": 0,
 				"choices": [
-					"(a) Woman",
-					"(b) Man",
+					"(a) Male",
+					"(b) Female",
 					"(c) Non-binary",
 					"(d) Prefer not to disclose",
 					"(e) Prefer to Self-describe (continue to next question)"

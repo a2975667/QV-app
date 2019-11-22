@@ -5,10 +5,10 @@
                 <div class="col-1">
                     <button (click)="modifyVotesByID(i, 1)" type="button" class="btn btn-outline-primary btn-sm" [disabled]="isDisabled(i, false)">
                             <i class="fas fa-plus"></i>
-                    </button>                                 
+                    </button>
                     <button (click)="modifyVotesByID(i, -1)" type="button" class="btn btn-outline-primary btn-sm" [disabled]="isDisabled(i, true)">
                         <i class="fas fa-minus"></i>
-                    </button>                                          
+                    </button>
                 </div>
                 <div class="col-8">
                     {{option.option}}
@@ -20,7 +20,7 @@
                         <i *ngFor="let k of [].constructor(-votes[i])" class="far fa-times-circle cross"></i>
                     </ng-template>
                 </div>
-                <div class="col-3">            
+                <div class="col-3">
                     <progressbar style="width: 100%;" [max]="this.totalCredits" [value]="votes[i]*votes[i]" [striped]="true" [animate]="true">
                         <i>{{((votes[i]*votes[i])/this.totalCredits)*100}}%</i>
                     </progressbar>
@@ -29,7 +29,7 @@
             <div class="row">
                     <div class="col-1"></div>
                     <div class="col-8">{{option.description}}</div>
-                    <div class="col-3"> Voted {{votes[i]}} votes costs {{votes[i]*votes[i]}} credit</div>
+                    <div class="col-3"> Casted {{votes[i]}} vote(s), cost {{votes[i]*votes[i]}} credit(s)</div>
             </div>
         </li>
 
