@@ -6,7 +6,7 @@
 	  {
 		"qid":1.324,
 		"question":"Where should the government allocate resource?",
-		"description":"<p>The US government is trying to decide how to allocate resources across several causes. For each of the causes listed below, <b>how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?</b> <br><br> Please express your opinion using Quadratic Voting as described above. You have a total of <b> 324 credits</b> for the following 9 causes. You do not need to use up all the credits, but you cannot exceed 324 credits. <br><br> If you think the government should <b>allocate more resources</b> to a certain cause, you can cast upvotes to the cause. If you believe the government should <b>allocate fewer resources</b> on a certain cause, you can cast downvotes for that option. </p>",
+		"description":"<p>The US government is trying to decide how to allocate resources across 9 causes. For each of the causes listed below, <b>how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?</b> <br><br> Please express your opinion using Quadratic Voting as described above. You have a total of <b> 324 credits</b> for the following 9 causes. You do not need to use up all the credits, but you cannot exceed 324 credits. <br><br> If you think the government should <b>allocate more resources</b> to a certain cause, you can cast upvotes to the cause. If you believe the government should <b>allocate fewer resources</b> on a certain cause, you can cast downvotes for that option. </p>",
 		"options":[
 		  {
 			  "o_id": "a",

@@ -11,7 +11,7 @@
     <div class="container">
         <h1>Lottery & Donation</h1>
         <p>
-            <b>You have entered a lottery with a payoff of $35.</b> With a probability of 1 out of 50, you will win $35. Prior to knowing the lottery result, you can choose to donate part of or all of the winning amount to <b>one or more organizations</b> listed below. The research team will <b>match $1 to each $1 you donate</b>. You can keep the rest of the money to yourself. To learn more about each organization, you can click on the hyperlink of the organization name and visit its website.
+            <b>You have entered a lottery with a payoff of $35.</b> With a probability of 1 out of 70, you will win $35. Prior to knowing the lottery result, you can choose to donate part of or all of the winning amount to <b>one or more organizations</b> listed below. The research team will <b>match $1 to each $1 you donate</b>. You can keep the rest of the money to yourself. To learn more about each organization, you can click on the hyperlink of the organization name and visit its website.
             <br><br>
             If you are the winner of the lottery, the research team will donate the specified amount plus the matched amount to the chosen organizations on your behalf, and the amount you choose to keep will be paid through bonus on MTurk.
             <br><br>
@@ -30,7 +30,7 @@
                         <!--{{org.org}}-->
                     </div>
                     <div class="col-3">         
-                            $ <input min="0" max="50" [(ngModel)]="donations[org.orgId]" (keyup)="caculate(org.orgId)" style="display: inline; width: 80%"type="number" min="0" class="form-control" oninput="validity.valid||(value='');" id="org.orgId">     
+                            $ <input min="0" max="35" [(ngModel)]="donations[org.orgId]" (keyup)="caculate(org.orgId)" style="display: inline; width: 80%"type="number" min="0" class="form-control" oninput="validity.valid||(value='');" id="org.orgId">     
                     </div>
                 </div>
                 <div class="row">
