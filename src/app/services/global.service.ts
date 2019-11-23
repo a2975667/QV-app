@@ -99,7 +99,8 @@ export class GlobalService {
       nextQuestionIndex = 0;
       this.setCookieById('user_current_path_index', String(pathIndex+1));
       if(pathArray[pathIndex+1]['type']==="donation"){
-        submitData.complete_flag = true;
+		submitData.complete_flag = true;
+		console.log(submitData)
         return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
           catchError(this.handleError)
         ).subscribe(data => {
