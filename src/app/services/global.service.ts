@@ -47,6 +47,7 @@ export class GlobalService {
   getCurrentPath() :string {
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    
     return pathArray[pathIndex]['file'];
   }
   generateSubmitPost(completeFlag: boolean) {
@@ -70,13 +71,12 @@ export class GlobalService {
   }
   getQuestionnaire() {
     let path = this.getCurrentPath();
-    const result = this.http.get(`${this.requestUrl}/qv/${path}`)
+    const result = this.http.get(`${this.requestUrl}/api/qv/${path}`)
     .pipe(
       catchError(this.handleError)
     )
     let currentQuestion = this.getCookieById('user_current_question_index');
     result.subscribe((data: Questionnaire) => {
-      console.log(data)
       let height = data.question_list.length;
       let votesArray = [];
       for(let i = 0; i < height; i++){
@@ -95,12 +95,12 @@ export class GlobalService {
     let submitData: submitPostSchema = this.generateSubmitPost(false);
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
+ 
     if (nextQuestionIndex >= this.questionnaire.question_list.length) {
       nextQuestionIndex = 0;
       this.setCookieById('user_current_path_index', String(pathIndex+1));
       if(pathArray[pathIndex+1]['type']==="donation"){
-		submitData.complete_flag = true;
-		console.log(submitData)
+		    submitData.complete_flag = true;
         return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
           catchError(this.handleError)
         ).subscribe(data => {
@@ -108,6 +108,7 @@ export class GlobalService {
         });
       }
     }
+    
     if(pathArray[pathIndex+1]['type']=='normal'){
       nextQuestionIndex = 0;
       this.setCookieById('user_current_question_index', String(nextQuestionIndex));
@@ -119,11 +120,10 @@ export class GlobalService {
     }else{
       this.setCookieById('user_current_question_index', String(nextQuestionIndex));
       this.getQuestionnaire();
-      submitData = this.generateSubmitPost(false);
+
       return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(
         catchError(this.handleError)
       ).subscribe(data => {
-        console.log(data)
       });
     }
   }

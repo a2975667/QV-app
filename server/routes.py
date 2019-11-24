@@ -170,7 +170,7 @@ def submit_demographic():
 	return jsonify({'ok': True}), 200
 
 # qv
-@app.route('/qv/<string:file_name>')
+@app.route('/api/qv/<string:file_name>')
 def show_subpath(file_name):
 	""" returns the json file appropriate to the question set it wants to generate
 	"""
