@@ -32,7 +32,7 @@ export class LikertService {
   }
   requestForm(){
     let fileName: string = this.getCurrentPath();
-    let fileAPI = `${this.requestUrl}/qv/${fileName}`;
+    let fileAPI = `${this.requestUrl}/api/qv/${fileName}`;
     this.http.get(fileAPI).pipe(
       catchError(this.handleError)
     ).subscribe(data => {

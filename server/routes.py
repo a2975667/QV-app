@@ -14,12 +14,17 @@ from server import app, db
 from server.utils import decide_path
 from bson.objectid import ObjectId
 
-
 @app.route('/welcome/<string:gp>')
 def root(gp):
-	print("servering:", gp)
 	return app.send_static_file('index.html')
 
+@app.route('/qv')
+@app.route('/likert')
+@app.route('/donation')
+@app.route('/complete')
+@app.route('/demographic')
+def root1():
+	return app.send_static_file('index.html')
 
 @app.route('/createUser', methods=['POST'])
 def welcome():
@@ -101,6 +106,7 @@ def submit():
 
 	print(request.json)
 	insert_data = request.json
+	insert_data['time'] = datetime.utcnow()
 	db.data.insert_one(insert_data)
 
 	return jsonify({'ok': True}), 200
@@ -123,6 +129,7 @@ def submit_donation():
 
 	print(request.json)
 	insert_data = request.json
+	insert_data['time'] = datetime.utcnow()
 	db.donation.insert_one(insert_data)
 
 	db.user.update_one({
@@ -166,11 +173,12 @@ def submit_demographic():
 
 	print(request.json)
 	insert_data = request.json
+	insert_data['time'] = datetime.utcnow()
 	db.demographic.insert_one(insert_data)
 	return jsonify({'ok': True}), 200
 
 # qv
-@app.route('/qv/<string:file_name>')
+@app.route('/api/qv/<string:file_name>')
 def show_subpath(file_name):
 	""" returns the json file appropriate to the question set it wants to generate
 	"""
@@ -187,9 +195,10 @@ def complete():
 	return request.json["userid"]
 
 
-@app.route('/download/debreif', methods=['GET'])
-def download(filename='debreif.pdf'):
-	return app.send_static_file('debreif.pdf')
+@app.route('/download/debrief', methods=['GET'])
+def download(filename='debrief.pdf'):
+	return send_from_directory('data', filename)
+	#return app.send_static_file('debreif.pdf')
 
 
 @app.route('/admin/setup_db')
