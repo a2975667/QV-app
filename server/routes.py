@@ -210,16 +210,16 @@ def setup_route_db():
 		"gp4": 1,
 		"gp5": 1,
 		"gp6": 2,
-		"gp7": 1,
-		"gp8": 4,
+		"gp7": 2,
+		"gp8": 3,
 		"gp9": 1,
 		"gp10": 2,
-		"gp11": 1,
+		"gp11": 2,
 		"gp12": 3,
 		"gp13": 1,
 		"gp14": 2,
-		"gp15": 1,
-		"gp16": 3
+		"gp15": 2,
+		"gp16": 2
 	}
 
 	from random import randint
