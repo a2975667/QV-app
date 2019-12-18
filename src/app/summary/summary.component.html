@@ -5,16 +5,28 @@
   icon="question"
   [showCancelButton]="true"
   [focusCancel]="true"
-  (confirm)="this.gService.submit()">
+  (confirm)="this.submitSuccessSwal.fire()">
+</swal>
+<swal
+  #submitSuccess
+  title="Submitted!"
+  [showCancelButton]="false"
+  text="Total number of votes might change in the next survey"
+  (afterClose)="this.gService.submit()"
+>
 </swal>
 <div class="container sticky">
     <div class="card">
         <h5 class="card-header">Summary</h5>
             <div class="card-body">
                 <h5 class="card-title">Used {{usedCredits}} out of {{totalCredits}} credits</h5>
-                <p class="card-text">
-                    <progressbar [animate]="false" [value]="percentage" [type]="type"></progressbar>
-                </p>
+                <div class="card-text">
+                    <div>
+                        <small style="float: left; margin: 0">0</small>
+                        <small style="float: right; margin: 0">{{totalCredits}}</small>
+                        <progressbar style="width: 100%; margin-bottom: 10px;" [animate]="false" [value]="percentage" [type]="type"></progressbar>
+                    </div>
+                </div>
                 <button (click)="submit()" type="button" class="btn btn-outline-primary">Submit</button>
             </div>
     </div>

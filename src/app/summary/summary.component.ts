@@ -14,7 +14,7 @@ export class SummaryComponent implements OnInit {
   percentage: number = 0;
   type: string;
   @ViewChild('confirmSubmit',{static: true}) private confirmSubmitSwal: SwalComponent;
-
+  @ViewChild('submitSuccess', {static: true}) private submitSuccessSwal: SwalComponent;
   constructor(
     private gService: GlobalService,
   ) { }
@@ -22,7 +22,7 @@ export class SummaryComponent implements OnInit {
     if(this.usedCredits == 0) {
       this.confirmSubmitSwal.fire();
     }else{
-      this.gService.submit();
+      this.submitSuccessSwal.fire();
     }
   }
   ngOnInit() {
@@ -31,15 +31,7 @@ export class SummaryComponent implements OnInit {
       this.gService.usedCredits.subscribe(usedCredits=>{
         this.usedCredits = usedCredits[data.currentQuestion];
         let percentage = (this.usedCredits/this.totalCredits)*100;
-        if (percentage < 25) {
-          this.type = 'success';
-        } else if (percentage < 50) {
-          this.type = 'info';
-        } else if (percentage < 75) {
-          this.type = 'warning';
-        } else {
-          this.type = 'danger';
-        }
+        this.type = 'info';
         this.percentage = percentage;
       })
     })
