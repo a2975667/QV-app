@@ -1,12 +1,12 @@
 {
-	"title": "Where should the government allocate the resources?",
+	"title": "What societal causes need the most support?",
 	"pages": [{
-		"title": "Where should the government allocate the resources?",
+		"title": "What societal causes need the most support?",
 		"questions": [{
 			"type": "matrix",
 			"name": "allocate_likert_p2",
 			"isAllRowRequired": true,
-			"title": "The government is trying to decide how to allocate resources across a number of causes. For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?",
+			"title": "People have different preferences in how resources should be allocated for different societal causes. For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?",
 			"columns": [{
 				"value": 1,
 				"text": "Very Unimportant"
