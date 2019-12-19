@@ -6,7 +6,7 @@
     {
       "qid":1.36,
       "question":"What societal causes do you think need the most support?",
-      "description":"<p>People have different preferences in how resources should be allocated for different societal causes. Here we listed 9 different societal causes. For each of the causes listed below, what do you think about <b>how effort and resources should be contributed toward the causes?</b> <br><br> Please express your opinion using Quadratic Voting as described above. You have a total of <b> 36 credits</b> for the following 9 causes. You do not need to use up all the credits, but you cannot exceed 36 credits. <br><br> If you think that <b>more resources should be allocated</b> to a certain cause, you can cast upvotes for that cause. If you believe that <b>fewer resources should be allocated</b> on a certain cause, you can cast downvotes for that option. </p>",
+      "description":"<p>Please express your opinion using Quadratic Voting as described above. You have a total of <b> 36 credits</b> for the following 9 causes. You do not need to use up all the credits, but you cannot exceed 36 credits. <br><br> If you think that <b>more resources should be allocated</b> to a certain cause, you can cast upvotes for that cause. If you believe that <b>fewer resources should be allocated</b> on a certain cause, you can cast downvotes for that option. </p>",
       "options":[
         {
 			"o_id": "a",
