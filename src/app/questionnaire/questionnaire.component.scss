@@ -1,9 +1,13 @@
-td, tr{
+td {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
+	width: 2em;
+	border: 1px solid grey;
 }
 
-tr {
+
+th, tr {
 	padding-left: 1em;
 	padding-right: 1em;
+	border: 1px solid grey;
 }

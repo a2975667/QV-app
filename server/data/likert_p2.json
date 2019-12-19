@@ -1,7 +1,7 @@
 {
-	"title": "What societal causes need the most support?",
+	"title": "What societal causes do you think need the most support?",
 	"pages": [{
-		"title": "What societal causes need the most support?",
+		"title": "What societal causes do you think need the most support?",
 		"questions": [{
 			"type": "matrix",
 			"name": "allocate_likert_p2",

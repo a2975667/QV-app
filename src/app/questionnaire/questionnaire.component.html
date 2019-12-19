@@ -26,12 +26,12 @@
 			You will be given a budget of a certain number of <b> voice credits</b>. You will use the available credits to cast votes. If you think the government should allocate more resources to a certain cause, you can cast multiple upvotes using the <b>+1  sign</b>. If you believe the government should allocate less resources on a certain cause, you can cast a few downvotes using the <b> -1 sign</b>. If you are neutral on whether the government should spend more or less resources on a cause, you can choose to cast <b> no vote </b>.
 
 			<br><br>
-			<b> Based on the intensity of your opinion, you can cast one or more upvotes or downvotes for each cause</b>. The stronger your opinion is, the more votes you can put on one option. At the same time, as the number of votes increases, the voice credits it costs increases quadratically, i.e. <b> X votes will cost X^2 (square of X) credits</b>. The cost of some common number of votes is specified in the table below:
+			<b> Based on the intensity of your opinion, you can cast one or more upvote or downvotes for each cause</b>. The stronger your opinion is, the more votes you can put on one option. At the same time, as the number of votes increases, the voice credits it costs increases quadratically, i.e. <b> X votes will cost X^2 (square of X) credits</b>. The cost of some common number of votes is specified in the table below:
 		</p>
 		<table align="center">
 			<tbody>
-				<tr align="right">
-					<th>Number of up or down votes:</th>
+				<tr align="center">
+					<th>Number of up or down votes</th>
 					<td align="center">1</td>
 					<td align="center">2</td>
 					<td align="center">3</td>
@@ -43,7 +43,7 @@
 					<td align="center">9</td>
 					<td align="center">10</td>
 				</tr>
-				<tr align="center">
+				<!-- <tr align="center">
 					<th align="center">&dArr;</th>
 					<td align="center">&dArr;</td>
 					<td align="center">&dArr;</td>
@@ -55,9 +55,9 @@
 					<td align="center">&dArr;</td>
 					<td align="center">&dArr;</td>
 					<td align="center">&dArr;</td>
-				</tr>
+				</tr> -->
 				<tr align="right">
-					<th align="right">Cost in number of voice credits:</th>
+					<th align="right">Cost in number of voice credits</th>
 					<td align="center">1</td>
 					<td align="center">4</td>
 					<td align="center">9</td>
@@ -79,11 +79,11 @@
 	<div [innerHTML]="questionDes"></div>
 </div>
 <br>
-<br>
-<app-summary></app-summary>
-<br>
-<br>
+
 <app-option></app-option>
+
 <br>
 <br>
+
+<app-summary></app-summary>
 <br>
