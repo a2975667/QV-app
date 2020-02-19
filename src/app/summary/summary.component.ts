@@ -24,7 +24,10 @@ export class SummaryComponent implements OnInit {
 
   submitFinalForm() {
     this.submitSuccessSwal.dismiss().then(
-      ()=>this.gService.submit(this.submitForm.value)
+      ()=>{
+        this.gService.submit(this.submitForm.value)
+        this.submitForm.setValue('');
+      }
     )
   }
   submit() {
