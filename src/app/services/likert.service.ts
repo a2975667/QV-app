@@ -5,12 +5,12 @@ import { catchError } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { submitPostSchema } from '../schema/submitPostSchema';
 import { Router } from '@angular/router';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class LikertService {
-  requestUrl = '';
+  requestUrl = environment.apiUrl;
   likertForm: BehaviorSubject<Object> = new BehaviorSubject({});
   constructor(
     private http: HttpClient,
