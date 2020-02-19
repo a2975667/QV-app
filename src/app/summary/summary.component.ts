@@ -48,7 +48,7 @@ export class SummaryComponent implements OnInit {
         this.percentage = percentage;
       })
     })
-    
+
   }
 
 }
