@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<swal\n  #confirmSubmit\n  title=\"Submit with 0 vote?\"\n  text=\"This cannot be undone\"\n  icon=\"question\"\n  [showCancelButton]=\"true\"\n  [focusCancel]=\"true\"\n  (confirm)=\"this.submitSuccessSwal.fire()\">\n</swal>\n<swal\n  #submitSuccess\n  title=\"Submitted!\"\n  [showCancelButton]=\"false\"\n  text=\"You will be presented a similar task on the next page. The total number of votes may change.\"\n  (afterClose)=\"this.gService.submit()\"\n>\n</swal>\n<div class=\"container sticky\">\n    <div class=\"card\">\n        <h5 class=\"card-header\">Summary</h5>\n            <div class=\"card-body\">\n                <h5 class=\"card-title\">Used {{usedCredits}} out of {{totalCredits}} credits</h5>\n                <div class=\"card-text\">\n                    <div>\n                        <small style=\"float: left; margin: 0\">0</small>\n                        <small style=\"float: right; margin: 0\">{{totalCredits}}</small>\n                        <progressbar style=\"width: 100%; margin-bottom: 10px;\" [animate]=\"false\" [value]=\"percentage\" [type]=\"type\"></progressbar>\n                    </div>\n                </div>\n                <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n            </div>\n    </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<swal\n  #confirmSubmit\n  title=\"Submit with 0 vote?\"\n  text=\"This cannot be undone\"\n  icon=\"question\"\n  [showCancelButton]=\"true\"\n  [focusCancel]=\"true\"\n  (confirm)=\"submitSuccessSwal.fire()\">\n</swal>\n<swal\n  #submitSuccess\n  icon=\"question\"\n  [showCancelButton]=\"false\"\n  [showConfirmButton]=\"false\"\n>\n    <form *swalPortal=\"swalTargets.content\" >\n        <p>\n            In 2 to 3 sentences, what is the reason that you make this decision?\n        </p>\n        <input \n            class=\"swal2-input\" \n            type=\"text\" \n            [formControl]=\"submitForm\" \n            autofocus\n            />\n        <label *ngIf=\"submitForm.invalid\" [ngClass] = \"'error'\" > Your response required with min 1 character. </label>\n        <br/>\n        <button \n        (click)=\"submitFinalForm()\"\n        *ngIf=\"!submitForm.invalid\" \n        class=\"swal2-styled swal2-confirm\"> Submit</button>\n</form>\n</swal>\n<div class=\"container sticky\">\n    <div class=\"card\">\n        <h5 class=\"card-header\">Summary</h5>\n            <div class=\"card-body\">\n                <h5 class=\"card-title\">Used {{usedCredits}} out of {{totalCredits}} credits</h5>\n                <div class=\"card-text\">\n                    <div>\n                        <small style=\"float: left; margin: 0\">0</small>\n                        <small style=\"float: right; margin: 0\">{{totalCredits}}</small>\n                        <progressbar style=\"width: 100%; margin-bottom: 10px;\" [animate]=\"false\" [value]=\"percentage\" [type]=\"type\"></progressbar>\n                    </div>\n                </div>\n                <button (click)=\"submit()\" type=\"button\" class=\"btn btn-outline-primary\">Submit</button>\n            </div>\n    </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -542,6 +542,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _complete_complete_component__WEBPACK_IMPORTED_MODULE_18__["CompleteComponent"]
         ],
         imports: [
+            _angular_forms__WEBPACK_IMPORTED_MODULE_14__["ReactiveFormsModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
@@ -1069,6 +1070,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1080,7 +1083,7 @@ let DemographicService = class DemographicService {
     constructor(cookieService, http) {
         this.cookieService = cookieService;
         this.http = http;
-        this.requestUrl = '';
+        this.requestUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].apiUrl;
         this.demoForm = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]({});
     }
     requestForm() {
@@ -1144,6 +1147,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1157,7 +1162,7 @@ let DonationService = class DonationService {
         this.http = http;
         this.cookieService = cookieService;
         this.route = route;
-        this.requestUrl = '';
+        this.requestUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl;
         this.organizations = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"]([]);
     }
     requestOrganizations() {
@@ -1229,6 +1234,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1248,7 +1255,7 @@ let GlobalService = class GlobalService {
         this.http = http;
         this.cookieService = cookieService;
         this.router = router;
-        this.requestUrl = '';
+        this.requestUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl;
         this.questionSet = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.votes = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.usedCredits = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -1307,7 +1314,7 @@ let GlobalService = class GlobalService {
         });
         return;
     }
-    submit() {
+    submit(finalQuestionValue) {
         let nextQuestionIndex = Number(this.getCookieById('user_current_question_index')) + 1;
         let submitData = this.generateSubmitPost(false);
         let pathArray = JSON.parse(this.getCookieById('user_path'));
@@ -1317,7 +1324,7 @@ let GlobalService = class GlobalService {
             this.setCookieById('user_current_path_index', String(pathIndex + 1));
             if (pathArray[pathIndex + 1]['type'] === "donation") {
                 submitData.complete_flag = true;
-                return this.http.post(`${this.requestUrl}/submit`, submitData).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError)).subscribe(data => {
+                return this.http.post(`${this.requestUrl}/submit`, { submitData: submitData, finalQuestion: finalQuestionValue }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(this.handleError)).subscribe(data => {
                     this.router.navigate(['donation']);
                 });
             }
@@ -1341,12 +1348,12 @@ let GlobalService = class GlobalService {
             console.error('An error occurred:', error.error.message);
         }
         else {
+            console.log(error);
             console.error(`Backend returned code ${error.status}, ` +
                 `body was: ${error.error}`);
         }
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])('Something bad happened; please try again later.');
     }
-    ;
 };
 GlobalService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
@@ -1389,6 +1396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+
 
 
 
@@ -1401,7 +1410,7 @@ let LikertService = class LikertService {
         this.http = http;
         this.cookieService = cookieService;
         this.router = router;
-        this.requestUrl = '';
+        this.requestUrl = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl;
         this.likertForm = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]({});
     }
     getCookieById(id) {
@@ -1535,14 +1544,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_global_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/global.service */ "./src/app/services/global.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _sweetalert2_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @sweetalert2/ngx-sweetalert2 */ "./node_modules/@sweetalert2/ngx-sweetalert2/fesm2015/sweetalert2-ngx-sweetalert2.js");
+
+
 
 
 
 let SummaryComponent = class SummaryComponent {
-    constructor(gService) {
+    constructor(swalTargets, gService) {
+        this.swalTargets = swalTargets;
         this.gService = gService;
         this.usedCredits = 0;
         this.percentage = 0;
+        this.submitForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(1)]);
+    }
+    submitFinalForm(e) {
+        this.submitSuccessSwal.dismiss().then(() => this.gService.submit(this.submitForm.value));
     }
     submit() {
         if (this.usedCredits == 0) {
@@ -1551,6 +1569,8 @@ let SummaryComponent = class SummaryComponent {
         else {
             this.submitSuccessSwal.fire();
         }
+    }
+    ngAfterViewInit() {
     }
     ngOnInit() {
         this.gService.questionSet.subscribe((data) => {
@@ -1565,6 +1585,7 @@ let SummaryComponent = class SummaryComponent {
     }
 };
 SummaryComponent.ctorParameters = () => [
+    { type: _sweetalert2_ngx_sweetalert2__WEBPACK_IMPORTED_MODULE_4__["SwalPortalTargets"] },
     { type: _services_global_service__WEBPACK_IMPORTED_MODULE_2__["GlobalService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1784,7 +1805,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 
 const environment = {
-    production: false
+    production: false,
+    apiUrl: 'http://localhost:5000'
 };
 /*
  * For easier debugging in development mode, you can import the following file
