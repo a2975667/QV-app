@@ -198,7 +198,6 @@ def complete():
 @app.route('/download/debrief', methods=['GET'])
 def download(filename='debrief.pdf'):
 	return send_from_directory('data', filename)
-	#return app.send_static_file('debreif.pdf')
 
 
 @app.route('/admin/setup_db')
