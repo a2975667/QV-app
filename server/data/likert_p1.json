@@ -55,7 +55,10 @@
 			}]
 		},
 		{
-
+			"type": "comment",
+			"isRequired": true,
+			"name": "reason_likert_p1",
+			"title": "In a few sentences, why do you make these selections?"
 		}
 	]
 	}]

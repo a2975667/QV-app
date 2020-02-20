@@ -56,6 +56,12 @@ def decide_path(gp):
 		"file":"qv_p2_324"
 	}
 
+	# Phrase 2 Disctraction
+	disctraction = {
+		"type":"normal",
+		"file":"freeform_distract"
+	}
+
 	# donation
 	donation = {
 		"type":"donation",
@@ -83,7 +89,8 @@ def decide_path(gp):
 		"file":"thank_attention"
 	}
 
-	# 8 path
+	# old path
+	'''
 	p1 = [likert_p1, likert_p2, donation, thank_short]
 	p2 = [qv_example, qv_test, qv_p1_036, qv_p1_108, qv_p2_036, qv_p2_108, donation, thank_complete]
 	p3 = [qv_example, qv_test, qv_p1_036, qv_p1_324, qv_p2_036, qv_p2_324, donation, thank_complete]
@@ -92,6 +99,17 @@ def decide_path(gp):
 	p6 = [qv_example, qv_test, qv_p1_324, qv_p1_036, qv_p2_324, qv_p2_036, donation, thank_complete]
 	p7 = [qv_example, qv_test, qv_p1_324, qv_p1_108, qv_p2_324, qv_p2_108, donation, thank_complete]
 	p8 = [likert_p1, likert_p2, donation, thank_short]
+	'''
+
+	# 8 path
+	p1 = [likert_p1, disctraction, donation, thank_short]
+	p2 = [qv_example, qv_test, qv_p1_036, qv_p1_108, disctraction, donation, thank_complete]
+	p3 = [qv_example, qv_test, qv_p1_036, qv_p1_324, disctraction, donation, thank_complete]
+	p4 = [qv_example, qv_test, qv_p1_108, qv_p1_324, disctraction, donation, thank_complete]
+	p5 = [qv_example, qv_test, qv_p1_108, qv_p1_036, disctraction, donation, thank_complete]
+	p6 = [qv_example, qv_test, qv_p1_324, qv_p1_036, disctraction, donation, thank_complete]
+	p7 = [qv_example, qv_test, qv_p1_324, qv_p1_108, disctraction, donation, thank_complete]
+	p8 = [likert_p1, disctraction, donation, thank_short]
 	thank_you = [thank_full]
 
 	# objectify paths to variable names

@@ -1,0 +1,33 @@
+{
+	"title": "What societal issues do you think need the most support?",
+	"pages": [{
+		"title": "",
+		"questions": [
+			{
+				"type": "checkbox",
+				"name": "p2",
+				"title": "What societal issues do you think need the most support?",
+				"isRequired": true,
+				"hasNone": true,
+				"colCount": 1,
+				"SelectAll": true,
+				"choices": [
+					"Increase Funding for Medicaid: Medicaid is a federal and state program that helps with medical costs for some people with limited income and resources",
+					"Strengthen Gun Control: Gun control is the set of laws or policies that regulate the manufacture, sale, transfer, possession, modification, or use of firearms by civilians",
+					"Reduce Global Warming: Global warming is the long-term rise in the average temperature of the Earth's climate system",
+					"Strive for Equal Pay across Gender: Equal pay across gender refers to paying the same salary for the same job across people of different genders",
+					"Tighten Social Media Regulations: Social media regulations refers to the government actively regulates social media sites as a means to prevent fake news and misinformation",
+					"Tighten Drug Price Regulations: Drug price regulations refers to the government regulating the prices of life-saving drugs",
+					"Increase Funding for Maintaining Border Security: Maintaining border security refers to addressing the perceived threats posed to the United States through land borders, ports and airports via the form of human terrorism or the smuggling and detonation of a weapon of mass destruction",
+					"Increase Funding for Space Exploration: Space exploration is the use of astronomy and space technology to explore outer space",
+					"Legalize Same-sex Marriage: Same-sex marriage is the marriage of two people of the same sex or gender, entered into in a civil or religious ceremon)"
+				]
+			},
+			{
+				"type": "comment",
+				"name": "p2-freeform",
+				"isRequired": true,
+				"title": "Why do you think these issues requires more attention and resources?"
+		}]
+	}]
+}

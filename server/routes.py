@@ -197,6 +197,7 @@ def complete():
 
 @app.route('/download/debrief', methods=['GET'])
 def download(filename='debrief.pdf'):
+	print("download")
 	return send_from_directory('data', filename)
 
 
