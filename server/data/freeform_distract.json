@@ -1,12 +1,12 @@
 {
-	"title": "What societal issues do you think need the most support?",
+	"title": "What societal issues need more support?",
 	"pages": [{
 		"title": "",
 		"questions": [
 			{
 				"type": "checkbox",
 				"name": "p2",
-				"title": "What societal issues do you think need the most support?",
+				"title": "What societal issues need more support?",
 				"isRequired": true,
 				"hasNone": true,
 				"colCount": 1,

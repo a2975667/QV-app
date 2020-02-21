@@ -1,12 +1,12 @@
 {
-	"title": "What societal causes do you think need the most support?",
+	"title": "What societal issues need more support?",
 	"pages": [{
-		"title": "What societal causes do you think need the most support?",
+		"title": "What societal issues need more support?",
 		"questions": [{
 			"type": "matrix",
 			"name": "allocate_likert_p1",
 			"isAllRowRequired": true,
-			"title": "People have different preferences in how resources should be allocated for different societal causes. For each of the causes listed below, how important do you think the cause is to you and that more effort and resources should be contributed toward the cause?",
+			"title": "People have different preferences in how resources should be allocated for different societal issues. Here we listed 9 different societal issues based on a popular donation website that has accumulated over 100 million dollars of donations. For each of the issues listed below, how important do you think the issue is to you and that more effort and resources should be contributed toward the issue?",
 			"columns": [{
 				"value": 1,
 				"text": "Very Unimportant"
@@ -58,7 +58,7 @@
 			"type": "comment",
 			"isRequired": true,
 			"name": "reason_likert_p1",
-			"title": "In a few sentences, why do you make these selections?"
+			"title": "In a few sentences, explain why you made these decisions?"
 		}
 	]
 	}]

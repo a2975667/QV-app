@@ -24,23 +24,21 @@
 	<br>
 
 	<p *ngIf="questionTitle!='QV Dry Run: Understanding what is Quadratic Voting'">People have different preferences in
-		how resources should be allocated for different societal causes. Here we listed 9 different societal causes. For
-		each of the causes listed below, what do you think about <b> how effort and resources should be contributed
-			toward the causes? </b></p>
+		how resources should be allocated for different societal issues. Here we listed 9 different societal issues based on a popular donation website that has accumulated over 100 million dollars of donations. For
+		each of the issues listed below, <b> how important do you think the issue is to you and that more effort and resources should be contributed toward the issue? </b></p>
 	<p>
-		For this question, you will use a <b>Binary Quadratic Voting</b> method to express your preferences.
+		For this question, you will use a <b>Quadratic Voting</b> method to express your preferences.
 		<br><br>
 		You will be given a budget of a certain number of <b> voice credits</b>. You will use the available credits to
-		cast votes. If you think more resources should be allocated to a certain cause, you can cast multiple
-		upvotes using the <b>+1 sign</b>. If you believe that less less resources should be allocated on a certain
-		cause, you can cast a few downvotes using the <b> -1 sign</b>. If you are neutral on a cause, you can choose to
+		cast votes. If you think more resources should be allocated to a certain issue, you can cast multiple
+		upvotes using the <b>+1 sign</b>. If you believe that less resources should be allocated on a certain
+		issue, you can cast a few downvotes using the <b> -1 sign</b>. If you are neutral on an issue, you can choose to
 		cast <b> no vote </b>.
 
 		<br><br>
-		<b> Based on the intensity of your opinion, you can cast one or more upvote or downvotes for each cause</b>. The
-		stronger your opinion is, the more votes you can put on one option. At the same time, as the number of votes
-		increases, the voice credits it costs increases quadratically, i.e. <b> X votes will cost X^2 (square of X)
-			credits</b>. The cost of some common number of votes is specified in the table below:
+		<b> Based on the intensity of your opinion, you can cast one or more upvote or downvotes for each issue</b>. The
+		stronger your opinion is, the more votes you can put on one option. The cost of these additional votes increases quadratically. In other words, <b> X votes will cost X<sup>2</sup> (square of X)
+			credits</b>. The table shows the cost for 1 to 10 votes as an example. You can vote more than 10 votes if the voice credit you have allows so.
 	</p>
 	<table align="center">
 		<tbody>
@@ -91,7 +89,7 @@
 			either. </b> You can see the total number of voice credits you have and the amount of credits you have spent
 		already in the “Summary” section below.
 	</p>
-	<hr>
+	<hr style="border-top-width: 0.1em; border-color: black; ">
 	<div [innerHTML]="questionDes"></div>
 </div>
 <br>
