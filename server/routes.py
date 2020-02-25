@@ -200,6 +200,10 @@ def download(filename='debrief.pdf'):
 	print("download")
 	return send_from_directory('data', filename)
 
+@app.route('/download/consent', methods=['GET'])
+def download_consent(filename='consent.pdf'):
+	print("download_consent")
+	return send_from_directory('data', filename)
 
 @app.route('/admin/setup_db')
 def setup_route_db():
