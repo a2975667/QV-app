@@ -1,0 +1,62 @@
+{
+	"title": "Impression with Charity Organizations",
+	"pages": [{
+		"title": "",
+		"questions": [{
+			"type": "matrix",
+			"name": "control",
+			"isAllRowRequired": true,
+			"title": "Here is a list of charity organizations. Have you ever heard of them? What are your impressions of the list of organizations below before working on this HIT?",
+			"columns": [{
+				"value": "NA",
+				"text": "Never heard of it"
+			}, {
+				"value": -1,
+				"text": "Negative"
+			}, {
+				"value": 0,
+				"text": "Neutral"
+			}, {
+				"value": 1,
+				"text": "Positive"
+			}],
+			"rows": [{
+					"value": "a",
+					"text": "MoMA (Museum of Modern Art)"
+				},
+				{
+					"value": "b",
+					"text": "Feeding America"
+				},
+				{
+					"value": "c",
+					"text": "Teach for America"
+				},
+				{
+					"value": "d",
+					"text": "The Nature Conservancy"
+				},
+				{
+					"value": "e",
+					"text": "The Humane Society of the United States"
+				},
+				{
+					"value": "f",
+					"text": "American Cancer Society"
+				},
+				{
+					"value": "g",
+					"text": "International Rescue Committee"
+				},
+				{
+					"value": "h",
+					"text": "Blue Skies Ministries"
+				},
+				{
+					"value": "i",
+					"text": "Wounded Warrior Homes Inc"
+				}
+			]
+		}]
+	}]
+}

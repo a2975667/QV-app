@@ -24,33 +24,33 @@
 				"text": "Very important"
 			}],
 			"rows": [{
-				"value": "a.pets",
+				"value": "a_pets",
 				"isRequired": true,
 				"text": "Pets and Animals   >>   (Animal Rights, Welfare, and Services; Wildlife Conservation; Zoos and Aquariums)"
 			}, {
-				"value": "b.art",
+				"value": "b_art",
 				"isRequired": true,
 				"text": "Arts, Culture, Humanities   >>   (Libraries, Historical Societies and Landmark Preservation; Museums; Performing Arts; Public Broadcasting and Media)"
 			}, {
-				"value": "c.education",
+				"value": "c_education",
 				"text": "Education   >>   (Early Childhood Programs and Services; Youth Education Programs and Services; Adult Education Programs and Services; Special Education; Education Policy and Reform; Scholarship and Financial Support)"
 			}, {
-				"value": "d.environment",
+				"value": "d_environment",
 				"text": "Environment   >>   (Environmental Protection and Conservation; Botanical Gardens, Parks and Nature Centers)"
 			}, {
-				"value": "e.health",
+				"value": "e_health",
 				"text": "Health   >>   (Diseases, Disorders, and Disciplines; Patient and Family Support; Treatment and Prevention Services; Medical Research)"
 			}, {
-				"value": "f.human",
+				"value": "f_human",
 				"text": "Human Services   >>   (Children’s and Family Services; Youth Development, Shelter, and Crisis Services; Food Banks, Food Pantries, and Food Distribution; Multipurpose Human Service Organizations; Homeless Services; Social Services)"
 			}, {
-				"value": "g.international",
+				"value": "g_international",
 				"text": "International   >>   (Development and Relief Services; International Peace, Security, and Affairs; Humanitarian Relief Supplies)"
 			}, {
-				"value": "h.faith",
+				"value": "h_faith",
 				"text": "Faith and Spiritual   >>   (Religious Activities; Religious Media and Broadcasting)"
 			}, {
-				"value": "i.veteran",
+				"value": "i_veteran",
 				"text": "Veteran   >>   (Wounded Troops Services, Military Social Services, Military Family Support)"
 			}]
 		},
