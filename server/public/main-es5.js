@@ -817,6 +817,8 @@
             /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
             /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
             var LikertComponent = /** @class */ (function () {
                 function LikertComponent(liService, route, cookieService, http, activatedRoute) {
                     this.liService = liService;
@@ -866,9 +868,14 @@
                         var pathArray = JSON.parse(this.cookieService.get('user_path'));
                         var pathIndex = Number(this.cookieService.get('user_current_path_index')) + 1;
                         var userId_1 = this.cookieService.get('user_id');
-                        var completeJsonAPI = this.requestUrl + "/thank_you/" + pathArray[pathIndex]['file'];
-                        this.http.get(completeJsonAPI).subscribe(function (completeJSON) {
-                            _this.route.navigate(['complete', Object.assign({}, completeJSON, { userId: userId_1 })]);
+                        var completeJsonAPI_1 = this.requestUrl + "/thank_you/" + pathArray[pathIndex]['file'];
+                        this.http.post(this.requestUrl + "/submit", {
+                            data: data,
+                            userId: userId_1,
+                        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["catchError"])(this.handleError)).subscribe(function () {
+                            _this.http.get(completeJsonAPI_1).subscribe(function (completeJSON) {
+                                _this.route.navigate(['complete', Object.assign({}, completeJSON, { userId: userId_1 })]);
+                            });
                         });
                     }
                     else {
@@ -877,6 +884,17 @@
                         });
                     }
                 };
+                LikertComponent.prototype.handleError = function (error) {
+                    if (error.error instanceof ErrorEvent) {
+                        console.error('An error occurred:', error.error.message);
+                    }
+                    else {
+                        console.error("Backend returned code " + error.status + ", " +
+                            ("body was: " + error.error));
+                    }
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["throwError"])('Something bad happened; please try again later.');
+                };
+                ;
                 return LikertComponent;
             }());
             LikertComponent.ctorParameters = function () { return [
