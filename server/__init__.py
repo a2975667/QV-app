@@ -27,7 +27,7 @@ load_dotenv()
 
 if os.getenv("mongo_url"):
 	mongo_url = os.getenv("mongo_url")
-	client = pymongo.MongoClient(mongo_url)
+	client = pymongo.MongoClient(mongo_url, ssl=True)
 	db = client.results
 else:
     print("Cannot locate Database..exiting now.")

@@ -4,7 +4,8 @@ import { Router, ActivatedRoute} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { environment } from '../../environments/environment';
-
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 @Component({
   selector: 'app-likert',
   templateUrl: './likert.component.html',
@@ -58,8 +59,17 @@ export class LikertComponent implements OnInit {
       let pathIndex = Number(this.cookieService.get('user_current_path_index'))+1;
       let userId = this.cookieService.get('user_id');
       let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
-      this.http.get(completeJsonAPI).subscribe(completeJSON=>{
-        this.route.navigate(['complete',{...completeJSON, userId: userId}])
+      this.http.post(`${this.requestUrl}/submit`, 
+      {
+        data: data,
+        userId: userId,
+      }
+      ).pipe(
+        catchError(this.handleError)
+      ).subscribe(() => {
+        this.http.get(completeJsonAPI).subscribe(completeJSON=>{
+          this.route.navigate(['complete',{...completeJSON, userId: userId}])
+        })
       })
     } else {
       this.liService.submit(data).subscribe(
@@ -68,9 +78,16 @@ export class LikertComponent implements OnInit {
         }
       );
     }
-    
-
-
-    
   }
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError(
+      'Something bad happened; please try again later.');
+  };
 }
