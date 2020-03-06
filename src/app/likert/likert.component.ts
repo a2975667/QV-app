@@ -24,7 +24,7 @@ export class LikertComponent implements OnInit {
   decidePath() {
     let pathIndex = Number(this.cookieService.get('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
-    let type: string = pathArray[pathIndex]['type'];    
+    let type: string = pathArray[pathIndex]['type'];
     if(type == 'normal'){
       this.route.navigate(['likert']);
       this.liService.requestForm();
@@ -38,7 +38,7 @@ export class LikertComponent implements OnInit {
   }
 
   ngOnInit() {
-    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation'); 
+    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
     console.log(isDonation)
     if(isDonation) {
       this.liService.requestForm('control');
@@ -46,11 +46,12 @@ export class LikertComponent implements OnInit {
       this.liService.requestForm();
     }
     this.liService.likertForm.subscribe(data => {
+	  console.log(data)
       this.json = data;
     });
-    
+
   }
-  
+
   submit(data){
     let isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
     if(isDonation){
@@ -68,9 +69,9 @@ export class LikertComponent implements OnInit {
         }
       );
     }
-    
 
 
-    
+
+
   }
 }

@@ -37,7 +37,7 @@ export class LikertService {
     } else {
       fileName = this.getCurrentPath();
     }
-    
+
     let fileAPI = `${this.requestUrl}/api/qv/${fileName}`;
     this.http.get(fileAPI).pipe(
       catchError(this.handleError)
@@ -80,6 +80,7 @@ export class LikertService {
       if (noFailedQuestion>2) {
         return true;
       } else {
+        console.log(data);
         return false;
       }
     } else {
@@ -108,7 +109,7 @@ export class LikertService {
       return empty();
     };
     this.cookieService.set('user_current_path_index', String(pathIndex+1),undefined,'/');
-    return this.http.post(`${this.requestUrl}/submit`, 
+    return this.http.post(`${this.requestUrl}/submit`,
       {
         data: data,
         userId: userId,

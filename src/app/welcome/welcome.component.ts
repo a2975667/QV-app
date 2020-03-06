@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
   isSubmit: boolean;
 
   constructor(
-    private gService: GlobalService, 
+    private gService: GlobalService,
     private router: Router,
     private cookieService: CookieService,
     private route: ActivatedRoute,
@@ -29,8 +29,8 @@ export class WelcomeComponent implements OnInit {
     if(this.cookieService.check('user_id')){
       let pathIndex = Number(this.cookieService.get('user_current_path_index'));
       let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
-      let type: string = pathArray[pathIndex]['type'];   
-      console.log(pathArray) 
+      let type: string = pathArray[pathIndex]['type'];
+      console.info(pathArray)
       if(type == 'normal'){
         this.router.navigate(['likert']);
       } else if(type == 'qv'){
@@ -58,7 +58,7 @@ export class WelcomeComponent implements OnInit {
         let userGP = this.route.snapshot.paramMap.get('id');
         this.gService.getUserID(userGP).subscribe((user: User) => {
           this.initCookie(user);
-          console.log(user)
+          console.info(user)
           if(user.path_id == "thank_you"){
             this.cookieService.deleteAll('/');
             this.router.navigate(['complete']);
@@ -69,12 +69,12 @@ export class WelcomeComponent implements OnInit {
       }else{
         this.router.navigate(['demographic']);
       }
-    }    
+    }
   }
 
   cancel() {
     alert("Please close the browser.");
-      //TODO jump to thank you page since closeTab function 
+      //TODO jump to thank you page since closeTab function
       //is not allowed in chrome 41+
   }
 }
