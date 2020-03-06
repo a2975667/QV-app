@@ -1,7 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { LikertService } from '../services/likert.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-likert',
@@ -9,18 +11,20 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./likert.component.scss']
 })
 export class LikertComponent implements OnInit {
+  requestUrl = environment.apiUrl;
   json: object;
   constructor(
     private liService: LikertService,
     private route: Router,
     private cookieService: CookieService,
+    private http: HttpClient,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   decidePath() {
     let pathIndex = Number(this.cookieService.get('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
     let type: string = pathArray[pathIndex]['type'];    
-    console.log(pathArray[pathIndex])   
     if(type == 'normal'){
       this.route.navigate(['likert']);
       this.liService.requestForm();
@@ -34,17 +38,39 @@ export class LikertComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.liService.requestForm();
+    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation'); 
+    console.log(isDonation)
+    if(isDonation) {
+      this.liService.requestForm('control');
+    } else {
+      this.liService.requestForm();
+    }
     this.liService.likertForm.subscribe(data => {
       this.json = data;
-    })
+    });
+    
   }
   
   submit(data){
-    this.liService.submit(data).subscribe(
-      result => {
-        this.decidePath();
-      }
-    );
+    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
+    if(isDonation){
+      let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
+      let pathIndex = Number(this.cookieService.get('user_current_path_index'))+1;
+      let userId = this.cookieService.get('user_id');
+      let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
+      this.http.get(completeJsonAPI).subscribe(completeJSON=>{
+        this.route.navigate(['complete',{...completeJSON, userId: userId}])
+      })
+    } else {
+      this.liService.submit(data).subscribe(
+        result => {
+          this.decidePath();
+        }
+      );
+    }
+    
+
+
+    
   }
 }

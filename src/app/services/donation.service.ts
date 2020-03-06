@@ -41,22 +41,16 @@ export class DonationService {
     return this.cookieService.get(id);
   }
   submit(data){
-    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-    let pathIndex = Number(this.getCookieById('user_current_path_index'))+1;
-    let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
-    this.http.get(completeJsonAPI).subscribe(completeJSON=>{
-      let userId = this.getCookieById('user_id');
-      this.cookieService.deleteAll('/');
-      let submitAPI = `${this.requestUrl}/submit-donation`;
-      this.http.post(submitAPI,{
-        donation: data,
-        userId: userId,
-      }).pipe(
-        catchError(this.handleError)
-      ).subscribe(result => {
-        this.route.navigate(['complete',{...completeJSON, userId: userId}])
-      })
+    
+    let userId = this.getCookieById('user_id');
+    let submitAPI = `${this.requestUrl}/submit-donation`;
+    this.http.post(submitAPI,{
+      donation: data,
+      userId: userId,
+    }).pipe(
+      catchError(this.handleError)
+    ).subscribe(result => {
+      this.route.navigate(['likert', {donation: true}])
     })
-
   }
 }

@@ -30,8 +30,14 @@ export class LikertService {
       return pathArray[pathIndex]['file'];
     }
   }
-  requestForm(){
-    let fileName: string = this.getCurrentPath();
+  requestForm(path=null){
+    var fileName: string;
+    if(path){
+      fileName = path;
+    } else {
+      fileName = this.getCurrentPath();
+    }
+    
     let fileAPI = `${this.requestUrl}/api/qv/${fileName}`;
     this.http.get(fileAPI).pipe(
       catchError(this.handleError)
