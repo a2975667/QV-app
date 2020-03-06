@@ -11,49 +11,49 @@
 				"value": "NA",
 				"text": "Never heard of it"
 			}, {
-				"value": -1,
-				"text": "Negative"
+				"value": 1,
+				"text": "Positive"
 			}, {
 				"value": 0,
 				"text": "Neutral"
 			}, {
-				"value": 1,
-				"text": "Positive"
+				"value": -1,
+				"text": "Negative"
 			}],
 			"rows": [{
-					"value": "a",
+					"value": "control_b_art",
 					"text": "MoMA (Museum of Modern Art)"
 				},
 				{
-					"value": "b",
+					"value": "control_f_human",
 					"text": "Feeding America"
 				},
 				{
-					"value": "c",
+					"value": "control_c_education",
 					"text": "Teach for America"
 				},
 				{
-					"value": "d",
+					"value": "control_d_environment",
 					"text": "The Nature Conservancy"
 				},
 				{
-					"value": "e",
+					"value": "control_a_pets",
 					"text": "The Humane Society of the United States"
 				},
 				{
-					"value": "f",
+					"value": "control_e_health",
 					"text": "American Cancer Society"
 				},
 				{
-					"value": "g",
+					"value": "control_g_international",
 					"text": "International Rescue Committee"
 				},
 				{
-					"value": "h",
+					"value": "control_h_faith",
 					"text": "Blue Skies Ministries"
 				},
 				{
-					"value": "i",
+					"value": "control_i_veteran",
 					"text": "Wounded Warrior Homes Inc"
 				}
 			]
