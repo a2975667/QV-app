@@ -60,6 +60,7 @@ export class LikertComponent implements OnInit {
       let pathIndex = Number(this.cookieService.get('user_current_path_index'))+1;
       let userId = this.cookieService.get('user_id');
       let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
+      console.log(data);
       this.http.post(`${this.requestUrl}/submit`, 
       {
         data: data,
