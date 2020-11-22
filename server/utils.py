@@ -95,6 +95,25 @@ def decide_path(gp):
 		"file":"thank_attention"
 	}
 
+	# experiment 4
+	qv_knapsack_09 = {
+		"type":"qv",
+		"file":"qv_p1_l1_9"
+	}
+	qv_knapsack_27 = {
+		"type":"qv",
+		"file":"qv_p1_l1_27"
+	}
+	qv_knapsack_81 = {
+		"type":"qv",
+		"file":"qv_p1_l1_81"
+	}
+	qv_inf = {
+		"type":"qv",
+		"file":"qv_p1_inf"
+	}
+
+
 	# old path
 	'''
 	p1 = [likert_p1, likert_p2, donation, thank_short]
@@ -108,8 +127,10 @@ def decide_path(gp):
 	'''
 
 	# 8 path
-	p1 = [likert_p1, disctraction, donation, thank_short]
-	p2 = [qv_example, qv_test, qv_p1_036, qv_p1_108, disctraction, donation, thank_complete]
+	p1 = [qv_knapsack_09, thank_complete]
+	p2 = [qv_inf, thank_complete]
+	#p1 = [likert_p1, disctraction, donation, thank_short]
+	#p2 = [qv_example, qv_test, qv_p1_036, qv_p1_108, disctraction, donation, thank_complete]
 	p3 = [qv_example, qv_test, qv_p1_036, qv_p1_324, disctraction, donation, thank_complete]
 	p4 = [qv_example, qv_test, qv_p1_108, qv_p1_324, disctraction, donation, thank_complete]
 	p5 = [qv_example, qv_test, qv_p1_108, qv_p1_036, disctraction, donation, thank_complete]

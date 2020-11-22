@@ -1,6 +1,9 @@
 {
 	"setting":{
-	  "style":"binary"
+	  "style":"binary",
+	  "options":{
+		  "inf": true
+	  }
 	},
 	"question_list":[
 	  {
