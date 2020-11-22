@@ -1,9 +1,11 @@
 {
+	"info":{
+		"qid":3.999
+	},
 	"setting":{
 	  "style":"binary",
-	  "options":{
-		  "inf": true
-	  }
+	  "totalCredits":1000000000,
+	  "reset": true
 	},
 	"question_list":[
 	  {
@@ -49,7 +51,7 @@
 			  "description": "(Wounded Troops Services, Military Social Services, Military Family Support)"
 		  }
 		],
-		"totalCredits":1000000000,
+		"totalCredits":-1,
 		"reset": true
 	  }
 	]
