@@ -5,7 +5,8 @@
 	"setting":{
 	  "style":"binary",
 	  "totalCredits":1000000000,
-	  "reset": true
+	  "reset": true,
+	  "progress_bar":false
 	},
 	"question_list":[
 	  {
@@ -51,7 +52,7 @@
 			  "description": "(Wounded Troops Services, Military Social Services, Military Family Support)"
 		  }
 		],
-		"totalCredits":-1,
+		"totalCredits":1000000000,
 		"reset": true
 	  }
 	]
