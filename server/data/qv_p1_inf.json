@@ -6,7 +6,7 @@
 	  "style":"binary",
 	  "totalCredits":1000000000,
 	  "reset": true,
-	  "progress_bar":false
+	  "progressBar":false
 	},
 	"question_list":[
 	  {
