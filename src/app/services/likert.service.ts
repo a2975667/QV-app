@@ -20,33 +20,33 @@ export class LikertService {
   getCookieById(id: string) {
     return this.cookieService.get(id);
   }
-  getCurrentPath() :string {
-    if(!this.cookieService.check('user_id')){
+  getCurrentPath(): string {
+    if (!this.cookieService.check('user_id')){
       this.router.navigate(['/']);
       return null;
-    }else{
-      let pathIndex = Number(this.getCookieById('user_current_path_index'));
-      let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    } else {
+      const pathIndex = Number(this.getCookieById('user_current_path_index'));
+      const pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
       return pathArray[pathIndex]['file'];
     }
   }
   requestForm(path=null){
-    var fileName: string;
-    if(path){
+    let fileName: string;
+    if (path) {
       fileName = path;
     } else {
       fileName = this.getCurrentPath();
     }
 
-    let fileAPI = `${this.requestUrl}/api/qv/${fileName}`;
+    const fileAPI = `${this.requestUrl}/api/qv/${fileName}`;
     this.http.get(fileAPI).pipe(
       catchError(this.handleError)
     ).subscribe(data => {
-      console.log(data);
       this.likertForm.next(data);
     });
 
   }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
@@ -57,7 +57,8 @@ export class LikertService {
     }
     return throwError(
       'Something bad happened; please try again later.');
-  };
+  }
+
   isQVTestResultFailed(data){
     let pathIndex = Number(this.getCookieById('user_current_path_index'));
     let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
@@ -72,15 +73,14 @@ export class LikertService {
         data['ac6']==="(4) 12345",
       ];
       let noFailedQuestion = 0;
-      conditions.forEach(val =>{
+      conditions.forEach(val => {
         if (!val) {
           noFailedQuestion ++;
         }
       });
-      if (noFailedQuestion>2) {
+      if (noFailedQuestion > 2) {
         return true;
       } else {
-        console.log(data);
         return false;
       }
     } else {
@@ -99,7 +99,6 @@ export class LikertService {
         userid: userId,
         path_id: path_id
       }).subscribe(res => {
-        this.cookieService.deleteAll('/');
         this.http.get(`${this.requestUrl}/thank_you/thank_attention`).subscribe(
           data => {
             this.router.navigate(['complete', {userId: userId, ...data}])

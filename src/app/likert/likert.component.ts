@@ -23,56 +23,52 @@ export class LikertComponent implements OnInit {
   ) { }
 
   decidePath() {
-    let pathIndex = Number(this.cookieService.get('user_current_path_index'));
-    let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
-    let type: string = pathArray[pathIndex]['type'];
-    if(type == 'normal'){
+    const pathIndex = Number(this.cookieService.get('user_current_path_index'));
+    const pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
+    const type: string = pathArray[pathIndex]['type'];
+    if (type === 'normal') {
       this.route.navigate(['likert']);
       this.liService.requestForm();
-    } else if(type == 'qv'){
+    } else if (type === 'qv') {
       this.route.navigate(['qv']);
-    } else if(type == 'donation'){
+    } else if (type === 'donation') {
       this.route.navigate(['donation']);
-    } else if(type == 'complete'){
+    } else if (type === 'complete') {
       this.route.navigate(['complete']);
     }
   }
 
   ngOnInit() {
-    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
-    console.log(isDonation)
-    if(isDonation) {
+    const isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
+    if (isDonation) {
       this.liService.requestForm('control');
     } else {
       this.liService.requestForm();
     }
     this.liService.likertForm.subscribe(data => {
-	  console.log(data)
-      this.json = data;
+    this.json = data;
     });
-
   }
 
-  submit(data){
-    let isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
-    if(isDonation){
-      let pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
-      let pathIndex = Number(this.cookieService.get('user_current_path_index'))+1;
-      let userId = this.cookieService.get('user_id');
-      let completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
-      console.log(data);
-      this.http.post(`${this.requestUrl}/submit`, 
+  submit(data) {
+    const isDonation = this.activatedRoute.snapshot.paramMap.get('donation');
+    if (isDonation) {
+      const pathArray: Array<object> = JSON.parse(this.cookieService.get('user_path'));
+      const pathIndex = Number(this.cookieService.get('user_current_path_index')) + 1;
+      const userId = this.cookieService.get('user_id');
+      const completeJsonAPI = `${this.requestUrl}/thank_you/${pathArray[pathIndex]['file']}`;
+      this.http.post(`${this.requestUrl}/submit`,
       {
-        data: data,
-        userId: userId,
+        data,
+        userId,
       }
       ).pipe(
         catchError(this.handleError)
       ).subscribe(() => {
-        this.http.get(completeJsonAPI).subscribe(completeJSON=>{
-          this.route.navigate(['complete',{...completeJSON, userId: userId}])
-        })
-      })
+        this.http.get(completeJsonAPI).subscribe(completeJSON => {
+          this.route.navigate(['complete', {...completeJSON, userId}]);
+        });
+      });
     } else {
       this.liService.submit(data).subscribe(
         result => {
@@ -91,5 +87,5 @@ export class LikertComponent implements OnInit {
     }
     return throwError(
       'Something bad happened; please try again later.');
-  };
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { Questionnaire } from '../schema/questionnaire';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
@@ -10,9 +10,10 @@ import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  usedCredits: number = 0;
+  @Input() showProgressBar: boolean;
+  usedCredits = 0;
   totalCredits: number;
-  percentage: number = 0;
+  percentage = 0;
   type: string;
   submitForm = new FormControl('', [Validators.required, Validators.minLength(1)]);
   @ViewChild('confirmSubmit',{static: true}) confirmSubmitSwal: SwalComponent;
@@ -24,16 +25,16 @@ export class SummaryComponent implements OnInit {
 
   submitFinalForm() {
     this.submitSuccessSwal.dismiss().then(
-      ()=>{
-        this.gService.submit(this.submitForm.value)
+      () => {
+        this.gService.submit(this.submitForm.value);
         this.submitForm.setValue('');
       }
-    )
+    );
   }
   submit() {
-    if(this.usedCredits == 0) {
+    if (this.usedCredits === 0) {
       this.confirmSubmitSwal.fire();
-    }else{
+    } else {
       this.submitSuccessSwal.fire();
     }
   }
@@ -42,15 +43,15 @@ export class SummaryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gService.questionSet.subscribe((data: Questionnaire) =>{
+    this.gService.questionSet.subscribe((data: Questionnaire) => {
       this.totalCredits = data.question_list[data.currentQuestion].totalCredits;
-      this.gService.usedCredits.subscribe(usedCredits=>{
+      this.gService.usedCredits.subscribe(usedCredits => {
         this.usedCredits = usedCredits[data.currentQuestion];
-        let percentage = (this.usedCredits/this.totalCredits)*100;
+        const percentage = (this.usedCredits / this.totalCredits) * 100;
         this.type = 'info';
         this.percentage = percentage;
-      })
-    })
+      });
+    });
 
   }
 

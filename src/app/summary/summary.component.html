@@ -36,14 +36,19 @@
     <div class="card">
         <h5 class="card-header">Summary</h5>
             <div class="card-body">
-                <h5 class="card-title">Used {{usedCredits}} out of {{totalCredits}} credits</h5>
-                <div class="card-text">
-                    <div>
-                        <small style="float: left; margin: 0">0</small>
-                        <small style="float: right; margin: 0">{{totalCredits}}</small>
-                        <progressbar style="width: 100%; margin-bottom: 10px;" [animate]="false" [value]="percentage" [type]="type"></progressbar>
+                <ng-container *ngIf="showProgressBar; else unlimited">
+                    <h5 class="card-title">Used {{usedCredits}} out of {{totalCredits}} credits</h5>
+                    <div class="card-text">
+                        <div>
+                            <small style="float: left; margin: 0">0</small>
+                            <small style="float: right; margin: 0">{{totalCredits}}</small>
+                            <progressbar style="width: 100%; margin-bottom: 10px;" [animate]="false" [value]="percentage" [type]="type"></progressbar>
+                        </div>
                     </div>
-                </div>
+                </ng-container>
+                <ng-template #unlimited>
+                    <h5 class="card-title">Used {{usedCredits}} credits</h5>
+                </ng-template>
                 <button (click)="submit()" type="button" class="btn btn-outline-primary">Submit</button>
             </div>
     </div>

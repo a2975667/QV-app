@@ -36,17 +36,16 @@ export class DonationService {
     }
     return throwError(
       'Something bad happened; please try again later.');
-  };
+  }
   getCookieById(id: string){
     return this.cookieService.get(id);
   }
   submit(data){
-    
-    let userId = this.getCookieById('user_id');
-    let submitAPI = `${this.requestUrl}/submit-donation`;
+    const userId = this.getCookieById('user_id');
+    const submitAPI = `${this.requestUrl}/submit-donation`;
     this.http.post(submitAPI,{
       donation: data,
-      userId: userId,
+      userId,
     }).pipe(
       catchError(this.handleError)
     ).subscribe(result => {

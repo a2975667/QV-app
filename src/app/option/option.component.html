@@ -21,20 +21,22 @@
                     </ng-template>
                 </div>
                 <div class="col-3">
-                    <small style="float: left; margin: 0">0%</small>
-                    <small style="float: right; margin: 0">100%</small>
-                    <progressbar *ngIf="votes[i]>=0" type="info" style="width: 100%;" [max]="this.totalCredits" [value]="votes[i]*votes[i]" [striped]="true" [animate]="true">
-                            <i>{{((votes[i]*votes[i])/this.totalCredits)*100 | number : '1.2-2'}}%</i>
-                    </progressbar>
-                    <progressbar *ngIf="votes[i]<0" type="warning" style="width: 100%;" [max]="this.totalCredits" [value]="votes[i]*votes[i]" [striped]="true" [animate]="true">
-                        <i>{{((votes[i]*votes[i])/this.totalCredits)*100 | number : '1.2-2'}}%</i>
-                    </progressbar>
+                    <ng-container *ngIf="showProgressBar">
+                        <small style="float: left; margin: 0">0%</small>
+                        <small style="float: right; margin: 0">100%</small>
+                        <progressbar *ngIf="votes[i]>=0" type="info" style="width: 100%;" [max]="this.totalCredits" [value]="calVote(votes[i])" [striped]="true" [animate]="true">
+                            <i>{{(calVote(votes[i])/this.totalCredits)*100 | number : '1.2-2'}}%</i>
+                        </progressbar>
+                        <progressbar *ngIf="votes[i]<0" type="warning" style="width: 100%;" [max]="this.totalCredits" [value]="calVote(votes[i])" [striped]="true" [animate]="true">
+                            <i>{{(calVote(votes[i])/this.totalCredits)*100 | number : '1.2-2'}}%</i>
+                        </progressbar>
+                    </ng-container>
                 </div>
             </div>
             <div class="row">
                     <div class="col-1"></div>
                     <div class="col-8">{{option.description}}</div>
-                    <div class="col-3"> Casted {{votes[i]}} vote(s), cost {{votes[i]*votes[i]}} credit(s)</div>
+                    <div class="col-3"> Casted {{votes[i]}} vote(s), cost {{calVote(votes[i])}} credit(s)</div>
 
             </div>
         </li>

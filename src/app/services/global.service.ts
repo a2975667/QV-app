@@ -17,6 +17,14 @@ function calTotalCredits(votesArray) {
   return q_totalUsedCredits;
 }
 
+function calKnapsackTotalCredits(votesArray) {
+  let q_totalUsedCredits = 0;
+  votesArray.forEach(vote => {
+    q_totalUsedCredits = q_totalUsedCredits + Math.abs(vote);
+  });
+  return q_totalUsedCredits;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,9 +57,9 @@ export class GlobalService {
     this.cookieService.set(id, val, undefined, '/');
   }
 
-  getCurrentPath() :string {
-    let pathIndex = Number(this.getCookieById('user_current_path_index'));
-    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+  getCurrentPath(): string {
+    const pathIndex = Number(this.getCookieById('user_current_path_index'));
+    const pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
     return pathArray[pathIndex]['file'];
   }
 
@@ -72,46 +80,56 @@ export class GlobalService {
   }
 
   modifyVotesByID(q_id, o_id, value) {
-    this.votesContent[q_id-1][o_id-1] = value;
-    this.usedCreditsArray[q_id-1] = calTotalCredits(this.votesContent[q_id-1]);    ;
-    this.update();
+    console.log(this.questionnaire.setting.style);
+    if (this.questionnaire.setting.style === 'binary') {
+      this.votesContent[q_id-1][o_id-1] = value;
+      this.usedCreditsArray[q_id-1] = calTotalCredits(this.votesContent[q_id-1]);
+      this.update();
+    } else {
+      this.votesContent[q_id-1][o_id-1] = value;
+      this.usedCreditsArray[q_id-1] = calKnapsackTotalCredits(this.votesContent[q_id-1]);
+      this.update();
+    }
   }
 
   getQuestionnaire() {
-    let path = this.getCurrentPath();
+    const path = this.getCurrentPath();
     const result = this.http.get(`${this.requestUrl}/api/qv/${path}`)
     .pipe(
       catchError(this.handleError)
-    )
-    let currentQuestion = this.getCookieById('user_current_question_index');
+    );
+    const currentQuestion = this.getCookieById('user_current_question_index');
     result.subscribe((data: Questionnaire) => {
-      let height = data.question_list.length;
-      let votesArray = [];
-      for(let i = 0; i < height; i++){
-        votesArray.push(new Array(data.question_list[i].options.length).fill(0));
+      if (data) {
+        const height = data.question_list.length;
+        const votesArray = [];
+        for(let i = 0; i < height; i++) {
+          votesArray.push(new Array(data.question_list[i].options.length).fill(0));
+        }
+        this.votesContent = votesArray;
+        this.usedCreditsArray = new Array(height).fill(0);
+        this.update();
+        this.questionSet.emit({currentQuestion: Number(currentQuestion), ...data});
+        this.questionnaire = data;
       }
-      this.votesContent = votesArray;
-      this.usedCreditsArray = new Array(height).fill(0);
-      this.update();
-      this.questionSet.emit({currentQuestion: Number(currentQuestion), ...data});
-      this.questionnaire = data;
+
     });
     return;
   }
 
   submit(finalQuestionValue: string) {
     let nextQuestionIndex: number = Number(this.getCookieById('user_current_question_index')) + 1;
-    let submitData: submitPostSchema = this.generateSubmitPost(false);
-    let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-    let pathIndex = Number(this.getCookieById('user_current_path_index'));
+    const submitData: submitPostSchema = this.generateSubmitPost(false);
+    const pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+    const pathIndex = Number(this.getCookieById('user_current_path_index'));
 
     if (nextQuestionIndex >= this.questionnaire.question_list.length) {
       nextQuestionIndex = 0;
-      this.setCookieById('user_current_path_index', String(pathIndex+1));
-      if(pathArray[pathIndex+1]['type']==="donation"){
+      this.setCookieById('user_current_path_index', String(pathIndex + 1));
+      if (pathArray[pathIndex + 1]['type'] === 'donation') {
         submitData.complete_flag = true;
-        return this.http.post(`${this.requestUrl}/submit`, 
-        {submitData: submitData, finalQuestion: finalQuestionValue}).pipe(
+        return this.http.post(`${this.requestUrl}/submit`,
+        {submitData, finalQuestion: finalQuestionValue}).pipe(
           catchError(this.handleError)
         ).subscribe(data => {
           this.router.navigate(['donation']);
@@ -119,22 +137,24 @@ export class GlobalService {
       }
     }
 
-    if(pathArray[pathIndex+1]['type']=='normal'){
+    if (pathArray[pathIndex + 1]['type'] === 'normal') {
       nextQuestionIndex = 0;
       this.setCookieById('user_current_question_index', String(nextQuestionIndex));
-      return this.http.post(`${this.requestUrl}/submit`, {submitData: submitData, finalQuestion: finalQuestionValue}).pipe(
+      return this.http.post(`${this.requestUrl}/submit`, {submitData, finalQuestion: finalQuestionValue}).pipe(
         catchError(this.handleError)
       ).subscribe(data => {
         this.router.navigate(['likert']);
       });
-    }else{
+    } else if (pathArray[pathIndex + 1]['type'] === 'qv') {
       this.setCookieById('user_current_question_index', String(nextQuestionIndex));
       this.getQuestionnaire();
 
-      return this.http.post(`${this.requestUrl}/submit`, {submitData: submitData, finalQuestion: finalQuestionValue}).pipe(
+      return this.http.post(`${this.requestUrl}/submit`, {submitData, finalQuestion: finalQuestionValue}).pipe(
         catchError(this.handleError)
       ).subscribe(data => {
       });
+    } else {
+      this.router.navigate(['complete'])
     }
   }
 
@@ -142,7 +162,6 @@ export class GlobalService {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
-      console.log(error)
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);

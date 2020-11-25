@@ -30,10 +30,10 @@ export class DemographicComponent implements OnInit {
   submit(data){
     this.demoFormService.submit(data).subscribe(
       result => {
-        let pathIndex = Number(this.getCookieById('user_current_path_index'));
-        let pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
-        let type: string = pathArray[pathIndex]['type'];       
-        if(type == 'normal'){
+        const pathIndex = Number(this.getCookieById('user_current_path_index'));
+        const pathArray: Array<object> = JSON.parse(this.getCookieById('user_path'));
+        const type: string = pathArray[pathIndex]['type'];
+        if (type === 'normal'){
           this.route.navigate(['likert']);
         } else {
           this.route.navigate(['qv']);
