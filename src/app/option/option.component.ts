@@ -11,13 +11,13 @@ import { Option } from '../schema/option';
   styleUrls: ['./option.component.scss']
 })
 export class OptionComponent implements OnInit {
-  
+
   votes: Array<number>;
   currentOptions: Array<Option>;
   totalCredits: number;
   currentQuestionIndex: number;
   constructor(
-    private gService: GlobalService, 
+    private gService: GlobalService,
   ) { }
 
   ngOnInit() {
@@ -35,14 +35,14 @@ export class OptionComponent implements OnInit {
   calCurrentTotalCredits() {
     let totalCredit = 0;
     this.votes.forEach(vote => {
-      totalCredit = totalCredit + vote*vote;
+      totalCredit = totalCredit + Math.pow(Math.abs(vote), 1);
     });
     return totalCredit;
   }
   isDisabled(index: number, isMinus: boolean) {
     let currentDirection = isMinus ? this.votes[index] <= 0 : this.votes[index] >= 0;
     let currentCredits = this.calCurrentTotalCredits();
-    let difference = Math.pow((Math.abs(this.votes[index])+1), 2) - Math.pow(this.votes[index], 2);
+    let difference = Math.pow((Math.abs(this.votes[index])+1), 1) - Math.pow(Math.abs(this.votes[index]), 1);
     let isNextPossibleTotalCreditsOK = currentCredits + difference > this.totalCredits;
     return currentDirection && isNextPossibleTotalCreditsOK;
   }

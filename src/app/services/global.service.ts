@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 function calTotalCredits(votesArray) {
   let q_totalUsedCredits = 0;
   votesArray.forEach(vote => {
-    q_totalUsedCredits = q_totalUsedCredits + Math.pow(vote, 2);
+    q_totalUsedCredits = q_totalUsedCredits + Math.abs(Math.pow(vote, 1));
   });
   return q_totalUsedCredits;
 }
@@ -110,7 +110,7 @@ export class GlobalService {
       this.setCookieById('user_current_path_index', String(pathIndex+1));
       if(pathArray[pathIndex+1]['type']==="donation"){
         submitData.complete_flag = true;
-        return this.http.post(`${this.requestUrl}/submit`, 
+        return this.http.post(`${this.requestUrl}/submit`,
         {submitData: submitData, finalQuestion: finalQuestionValue}).pipe(
           catchError(this.handleError)
         ).subscribe(data => {
